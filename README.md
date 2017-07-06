@@ -5,6 +5,5 @@
 ### Trends in populations quantities
 
 #### Stock biomass
-![Image of biomass time series]
-(https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfRecruitment.png)
+[[https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfRecruitment.png]]
 
