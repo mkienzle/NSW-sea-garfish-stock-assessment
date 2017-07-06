@@ -9,7 +9,7 @@ The data consists of measurements of age from a sample of commercial catches (ht
 
 ## Methods
 
-Mortality rates were estimated by maximimum likelihood applying methods taken from survival analysis (https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). 
+Mortality rates were estimated by maximimum likelihood applying methods taken from survival analysis (https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). A model describing how natural causes and fishing affects the survival of fish is specified using a hazard function. Various hypotheses about the effect of fishing were investigated by looking at which is most supported by the data using Akaike Information Criteria (AIC). The best model was then used to derive quantities describing trends in the sea garfish stock.
 
 ### Trends in populations quantities
 
