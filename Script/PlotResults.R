@@ -9,9 +9,6 @@ source("DeriveQuantitiesFromModels.R")
 
 # Load data from profiling the likelihood (created by CalculatePopulationTrendsWithUncertainties.R)
 
-#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Apr202017-16:32:27.csv")
-#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-May092017-15:11:49.csv")
-#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-21-56-57.csv")
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-22-11-45.csv")
 resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
 
@@ -56,8 +53,8 @@ N.at.age <- catch.at.age / F
 
 
 
-pdf("Results/Graphics/EstimateOfBiomass.pdf")
-#png("Results/Graphics/EstimateOfBiomass.png")
+#pdf("Results/Graphics/EstimateOfBiomass.pdf")
+png("Results/Graphics/EstimateOfBiomass.png")
 
 plot(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3),
 type = "n", axes = FALSE, xlab = "", ylab = "", main = "Biomass estimates", ylim = c(0, 400))
@@ -78,8 +75,8 @@ segments(seq(2004, 2015), apply(resample.results.x[, 24:35],2, min),
 dev.off()
 
 ### Plot trends in estimated fishery and natural mortality rates from model 2
-pdf(file = "Results/Graphics/Mod2-MortalityEstimates.pdf")
-#png(file = "Results/Graphics/Mod2-MortalityEstimates.png")
+#pdf(file = "Results/Graphics/Mod2-MortalityEstimates.pdf")
+png(file = "Results/Graphics/Mod2-MortalityEstimates.png")
 plot( seq(1, nrow(nb.at.age.wgt)), result2$par[1] * csf * (effort * s.at.age.model2)[,2], pch = 19, type = "b",
       axes = FALSE, xlab = "", ylab = "mortality rates (1/year)", ylim = c(0,2.0))
 polygon(x=c(0,13, 13, 0), y = c(result2$par[2] - 2 * errors2[2], result2$par[2] - 2 * errors2[2], result2$par[2] + 2 * errors2[2], result2$par[2] + 2 * errors2[2]), col = "lightgrey", border = "transparent")

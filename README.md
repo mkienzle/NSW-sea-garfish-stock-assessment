@@ -4,6 +4,6 @@
 
 ### Trends in populations quantities
 
-#### Stock biomass
+#### Recruitment estimates
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfRecruitment.png)
 
