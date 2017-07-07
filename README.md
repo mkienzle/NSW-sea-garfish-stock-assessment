@@ -5,7 +5,7 @@
 This repository provides data, methods, scripts and results used to estimates the status of the sea garfish fishery in New South Wales (Australia).
 
 ## Data
-The data consists of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), measurements of [weights of individual fish at age](Data/GarfishWeightAtAge.csv), total catch (https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Data/GarfishCatchData.csv) and effort (https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Data/GarfishEffortData.csv).
+The data consists of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), measurements of [weights of individual fish at age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
 
 ## Methods
 
