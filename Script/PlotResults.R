@@ -4,7 +4,7 @@
 # PURPOSE plot results on various analysis
 
 # Fit models to the data
-source("FitModels.R")
+#source("FitModels.R")
 source("DeriveQuantitiesFromModels.R")
 
 # Load data from profiling the likelihood (created by CalculatePopulationTrendsWithUncertainties.R)
@@ -12,12 +12,16 @@ source("DeriveQuantitiesFromModels.R")
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-22-11-45.csv")
 resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
 
+# Some useful parameters
+year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
+
+
 ### Recruitment estimates (plot recruitment + uncertainty generates using a profile likelihood approach -- see CalculateRecruitmentUncertainty.R)
 
 #pdf("Results/Graphics/EstimateOfRecruitment.pdf")
 png("Results/Graphics/EstimateOfRecruitment.png")
 indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
-plot(seq(2004, 2015), est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 4e6), axes = FALSE)
+plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 4e6), axes = FALSE)
 axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
@@ -25,9 +29,10 @@ abline(h = seq(0,9) * 1e6, col = "lightgrey")
 legend(2004, 4e6, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
 points(seq(2004, 2015), est.rec[indices], pch = 19, type = "b", lty = 2)
 
+idx.rec.col <- grep("rec", names(resample.results.x))
 
-segments(seq(2004, 2015), apply(resample.results.x, 2, min)[12:23],
-         seq(2004, 2015), apply(resample.results.x, 2, max)[12:23])
+segments(seq(2004, 2015), apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
+         seq(2004, 2015), apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]])
 
 dev.off()
 
@@ -57,7 +62,7 @@ N.at.age <- catch.at.age / F
 png("Results/Graphics/EstimateOfBiomass.png")
 
 plot(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3),
-type = "n", axes = FALSE, xlab = "", ylab = "", main = "Biomass estimates", ylim = c(0, 400))
+type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 400))
 axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
