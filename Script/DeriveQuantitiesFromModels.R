@@ -21,8 +21,11 @@ est.rec <- rowSums(Caaa2Coaa(est.nb.at.age.in.catch), na.rm = T) / rowSums(prob,
 s.at.age.model2 <-rbind( outer(rep(1,6), c(result2$par[3], rep(1,5))),
     		                outer(rep(1,nrow(effort)-6), c(result2$par[4], rep(1,5))))
 
+write.csv(file = "Results/Models/Mod2-GearSelectivity.csv", s.at.age.model2)
+
 mod2.fish.mort.est <- result2$par[1] * csf * (effort * s.at.age.model2)
 dimnames(mod2.fish.mort.est) <- dimnames(nb.at.age.tmp)
 
-print(file = "Results/Mod2-FishingMortality.tex", xtable(formating(mod2.fish.mort.est), digits = 2, caption = "Estimates of fishing mortality faced by each age-group in every year according to model 2.", label="tab:Mod2-FishingMortality"))
+print(file = "Results/Models/Mod2-FishingMortality.tex", xtable(formating(mod2.fish.mort.est), digits = 2, caption = "Estimates of fishing mortality faced by each age-group in every year according to model 2.", label="tab:Mod2-FishingMortality"))
+
 
