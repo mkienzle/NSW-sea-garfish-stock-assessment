@@ -15,9 +15,9 @@ Several models describing how mortality rates varied by age-group through time (
 
 So far, three mortality models have been estimated from the data. All models assume constant natural mortality; age group 1-2 years old and older fully selected by the gear.
 
-Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have stayed the same throughout the time series. 
-Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11. 
-Model 3 estimates selectivity in 1 block like model 1 and has natural mortality fixed at 0.7 per year. 
+- Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have stayed the same throughout the time series. 
+- Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11. 
+- Model 3 estimates selectivity in 1 block like model 1 and has natural mortality fixed at 0.7 per year. 
 
 ### Trends in populations quantities
 
