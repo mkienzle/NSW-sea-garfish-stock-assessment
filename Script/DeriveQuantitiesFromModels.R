@@ -9,6 +9,14 @@
 # Fit models to the data
 source("FitModels.R")
 
+### Model 1
+s.at.age.mod1 <- outer(rep(1, nrow(effort)), c(result$par[3], rep(1,5)))
+
+s.at.age.mod1 <- formating(s.at.age.mod1)
+dimnames(s.at.age.mod1)[[1]] <- dimnames(catch)[[1]]
+write.csv(file = "Results/Models/Mod1-GearSelectivity.csv", round(s.at.age.mod1,3))
+
+### Model 2
 ## Calculate the probabilities associated with each observation using model 2
 prob <- prob.for.ll.model2(result2$par, effort = effort, catchability.scaling.factor = csf)
 
@@ -17,12 +25,12 @@ est.nb.at.age.in.catch <- outer(estimated.nb.in.catch, rep(1, 6)) * nb.at.age / 
 est.rec <- rowSums(Caaa2Coaa(est.nb.at.age.in.catch), na.rm = T) / rowSums(prob, na.rm = T)
 
 ## Calculate fishing mortality at age
-
 s.at.age.model2 <-rbind( outer(rep(1,6), c(result2$par[3], rep(1,5))),
     		                outer(rep(1,nrow(effort)-6), c(result2$par[4], rep(1,5))))
 
+s.at.age.model2 <- formating(s.at.age.model2)
 dimnames(s.at.age.model2)[[1]] <- dimnames(catch)[[1]]
-write.csv(file = "Results/Models/Mod2-GearSelectivity.csv", round(formating(s.at.age.model2),3))
+write.csv(file = "Results/Models/Mod2-GearSelectivity.csv", round(s.at.age.model2,3))
 
 mod2.fish.mort.est <- result2$par[1] * csf * (effort * s.at.age.model2)
 dimnames(mod2.fish.mort.est) <- dimnames(nb.at.age.tmp)
