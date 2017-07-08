@@ -21,23 +21,48 @@ year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
 #pdf("Results/Graphics/EstimateOfRecruitment.pdf")
 png("Results/Graphics/EstimateOfRecruitment.png")
 indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
-plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 4e6), axes = FALSE)
+plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 5e6), axes = FALSE)
 axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
 abline(h = seq(0,9) * 1e6, col = "lightgrey")
-legend(2004, 4e6, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
-points(seq(2004, 2015), est.rec[indices], pch = 19, type = "b", lty = 2)
+legend(2004, 5e6, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
+points(seq(2004, 2015), est.rec[indices], pch = 19, type = "b", lty = 1)
 
 idx.rec.col <- grep("rec", names(resample.results.x))
 
 segments(seq(2004, 2015), apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
          seq(2004, 2015), apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]])
 
+
 dev.off()
 
 # Plot the variability of recruitment estimate from profile likelihood
 boxplot(resample.results.x[, 12:23], names = 2004:2015, las = 1, main = "Recruitment estimate variability")
+
+# Compare recruitment estimates with previous year's estimate
+#pdf("Results/Graphics/EstimateOfRecruitment.pdf")
+png("Results/Graphics/CompareVariousRecruitmentEstimates.png")
+indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
+plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 5e6), axes = FALSE)
+axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
+axis(2, las = 1)
+box()
+abline(h = seq(0,9) * 1e6, col = "lightgrey")
+legend(2004, 5e6, lty = c(NA, 1,NA), pch = c(19, NA,19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
+points(seq(2004, 2015), est.rec[indices], pch = 19, type = "b", lty = 1)
+
+idx.rec.col <- grep("rec", names(resample.results.x))
+
+segments(seq(2004, 2015), apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
+         seq(2004, 2015), apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]], lwd = 3.5)
+
+
+old.rec.est <- read.csv("../Data/NSW-Garfish-RecEstimates2004-14.csv")
+with(old.rec.est, points(Year, EstRec, pch = 19, type = "b", col = "red", lty = 2))
+with(old.rec.est, segments(Year, X95CI.LowBound, Year, X95CI.HighBound, col = "red", lwd = 2))
+
+dev.off()
 
 ### Plot biomasses
 
