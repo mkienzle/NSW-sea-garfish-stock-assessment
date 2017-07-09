@@ -117,7 +117,7 @@ abline(h = seq(0,600, 50), col = "lightgrey")
 
 points(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
 
-legend(2004, 400, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
+legend(2004, 400, lty = c(NA, 1, NA), pch = c(19, NA, 19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
 
 segments(seq(2004, 2015), apply(resample.results.x[, 24:35],2, min),
          seq(2004, 2015), apply(resample.results.x[, 24:35],2, max), lwd = 3.5)
