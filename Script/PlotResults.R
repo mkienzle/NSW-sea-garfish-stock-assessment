@@ -81,8 +81,6 @@ mu <-  F/(F+M) * (1-exp(-(F+M)))# Quinn and Deriso (1999) (Eq. 8.58)
 #N.at.age <- catch.at.age / mu
 N.at.age <- catch.at.age / F
 
-
-
 #pdf("Results/Graphics/EstimateOfBiomass.pdf")
 png("Results/Graphics/EstimateOfBiomass.png")
 
@@ -103,6 +101,33 @@ segments(seq(2004, 2015), apply(resample.results.x[, 24:35],2, min),
          seq(2004, 2015), apply(resample.results.x[, 24:35],2, max))
 	 
 dev.off()
+
+# Compare with previous years results
+#pdf("Results/Graphics/EstimateOfBiomass.pdf")
+png("Results/Graphics/CompareVariousBiomassEstimates.png")
+
+plot(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3),
+type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 400))
+axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
+axis(2, las = 1)
+box()
+
+abline(h = seq(0,600, 50), col = "lightgrey")
+#abline(h = seq(100,400, 50), col = "lightgrey")
+
+points(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
+
+legend(2004, 400, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
+
+segments(seq(2004, 2015), apply(resample.results.x[, 24:35],2, min),
+         seq(2004, 2015), apply(resample.results.x[, 24:35],2, max), lwd = 3.5)
+
+old.biomass.est <- read.csv("../Data/NSW-Garfish-BiomassEstimates2004-14.csv")
+with(old.biomass.est, points(Year, EstBiomass, pch = 19, type = "b", col = "red", lty = 2))
+with(old.biomass.est, segments(Year, X95CI.LowBound, Year, X95CI.HighBound, col = "red", lwd = 2))
+
+dev.off()
+
 
 ### Plot trends in estimated fishery and natural mortality rates from model 2
 #pdf(file = "Results/Graphics/Mod2-MortalityEstimates.pdf")
