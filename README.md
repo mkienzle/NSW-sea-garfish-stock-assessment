@@ -28,11 +28,13 @@ Model 2 is most supported by the data according to [AIC](Script/Results/Data/Mod
 #### Mortality rates
 
 The mortality model most supported by the data show a decline of fishing mortality rates to below natural mortality from 2010/11 onward. The decrease in age-group 0-1 retention in the gear combined with decreasing fishing effort reduced fishing mortality on the youngest age-group to a negligible level.
+
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Mod2-MortalityEstimates.png)
 
 #### Biomass estimates
 
 Biomass estimates shows the sea garfish stock biomass remained above 100 tonnes since 2009/10.
+
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfBiomass.png)
 
 #### Recruitment estimates
