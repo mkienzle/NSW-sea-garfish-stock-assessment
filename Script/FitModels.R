@@ -198,7 +198,7 @@ res.comparison[3,] <- c("3",
                         round(2 * result3$value + 2 * length(result3$par),1),
 			paste("(", paste(round(result3$par[1],2), round(errors3[1],2), sep = " +- " ), ") x 1e-3"),
 		        paste(0.7, "NA", sep = " +- " ),
-		        paste(round(result2$par[2],2), round(errors2[2],3), sep = " +- " ),
+		        paste(round(result3$par[2],3), round(errors3[2],3), sep = " +- " ),
 		        NA)
 			
 

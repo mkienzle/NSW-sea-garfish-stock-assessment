@@ -13,7 +13,7 @@ Several models describing how mortality rates varied by age-group through time (
 
 ## Mortality models for sea garfish
 
-So far, three mortality models have been estimated from the data. All models assume constant natural mortality; age group 1-2 years old and older fully selected by the gear.
+So far, three mortality models have been estimated from the data. All models assume constant natural mortality; full gear selection by the gear for age group 1-2 years old and older.
 
 - Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have stayed the same throughout the time series. 
 - Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11. 
