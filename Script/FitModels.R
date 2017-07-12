@@ -202,7 +202,7 @@ res.comparison[3,] <- c("3",
 		        NA)
 			
 
-write.csv(res.comparison[order(res.comparison$AIC),], file = "Results/Data/ModelComparisonTable.csv")
+write.csv(res.comparison[order(res.comparison$AIC),], file = "Results/Data/ModelComparisonTable.csv", row.names = FALSE)
 
 
 
