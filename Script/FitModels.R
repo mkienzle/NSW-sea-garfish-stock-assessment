@@ -175,8 +175,34 @@ print(errors3)
 # print(errors8)
 # save(result8, file = "Results/Models/model8.R")
 
+# Compare results in table
 
+res.comparison <- data.frame(matrix(NA, nrow = 3, ncol = 6))
+dimnames(res.comparison)[[2]] <- c("Model", "AIC", "Catchability", "Natural mortality", "s1", "s2")
 
+res.comparison[1,] <- c("1",
+                        round(2 * result$value + 2 * length(result$par),1),
+			paste(round(result$par[1],2), round(errors[1],2), sep = " +- " ),
+		        paste(round(result$par[2],2), round(errors[2],3), sep = " +- " ),
+		        paste(round(result$par[3],2), round(errors[3],3), sep = " +- " ),
+			NA)
+			
+res.comparison[2,] <- c("2",
+                        round(2 * result2$value + 2 * length(result2$par),1),
+			paste(round(result2$par[1],2), round(errors2[1],2), sep = " +- " ),
+		        paste(round(result2$par[2],2), round(errors2[2],3), sep = " +- " ),
+		        paste(round(result2$par[3],2), round(errors2[3],3), sep = " +- " ),
+		        paste(round(result2$par[4],2), round(errors2[4],3), sep = " +- " ))
+			
+res.comparison[3,] <- c("3",
+                        round(2 * result3$value + 2 * length(result3$par),1),
+			paste(round(result3$par[1],2), round(errors3[1],2), sep = " +- " ),
+		        paste(0.7, "NA", sep = " +- " ),
+		        paste(round(result2$par[2],2), round(errors2[2],3), sep = " +- " ),
+		        NA)
+			
+
+write.csv(res.comparison[order(res.comparison$AIC),], file = "Results/Data/ModelComparisonTable.csv")
 
 
 
