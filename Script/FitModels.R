@@ -182,21 +182,21 @@ dimnames(res.comparison)[[2]] <- c("Model", "AIC", "Catchability", "Natural mort
 
 res.comparison[1,] <- c("1",
                         round(2 * result$value + 2 * length(result$par),1),
-			paste(round(result$par[1],2), round(errors[1],2), sep = " +- " ),
-		        paste(round(result$par[2],2), round(errors[2],3), sep = " +- " ),
-		        paste(round(result$par[3],2), round(errors[3],3), sep = " +- " ),
+			paste("(", paste(round(result$par[1],2), round(errors[1],2), sep = " +- " ), ") x 1e-3"),
+		        paste(round(result$par[2],2), round(errors[2],2), sep = " +- " ),
+		        paste(round(result$par[3],3), round(errors[3],3), sep = " +- " ),
 			NA)
 			
 res.comparison[2,] <- c("2",
                         round(2 * result2$value + 2 * length(result2$par),1),
-			paste(round(result2$par[1],2), round(errors2[1],2), sep = " +- " ),
-		        paste(round(result2$par[2],2), round(errors2[2],3), sep = " +- " ),
-		        paste(round(result2$par[3],2), round(errors2[3],3), sep = " +- " ),
-		        paste(round(result2$par[4],2), round(errors2[4],3), sep = " +- " ))
+			paste("(", paste(round(result2$par[1],2), round(errors2[1],2), sep = " +- " ), ") x 1e-3"),
+		        paste(round(result2$par[2],2), round(errors2[2],2), sep = " +- " ),
+		        paste(round(result2$par[3],3), round(errors2[3],3), sep = " +- " ),
+		        paste(round(result2$par[4],3), round(errors2[4],3), sep = " +- " ))
 			
 res.comparison[3,] <- c("3",
                         round(2 * result3$value + 2 * length(result3$par),1),
-			paste(round(result3$par[1],2), round(errors3[1],2), sep = " +- " ),
+			paste("(", paste(round(result3$par[1],2), round(errors3[1],2), sep = " +- " ), ") x 1e-3"),
 		        paste(0.7, "NA", sep = " +- " ),
 		        paste(round(result2$par[2],2), round(errors2[2],3), sep = " +- " ),
 		        NA)
