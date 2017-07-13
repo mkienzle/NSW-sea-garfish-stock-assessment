@@ -16,15 +16,13 @@ Several models describing how mortality rates varied by age-group through time (
 
 So far, three mortality models have been estimated from the data. All models assume constant natural mortality; full gear selection by the gear for age group 1-2 years old and older.
 
-- Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have stayed the same throughout the time series. 
-- Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11. 
-- Model 3 estimates selectivity in 1 block like model 1 and has natural mortality fixed at 0.7 per year. 
-
-
+- Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have remained constant throughout the entire time series. 
+- Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11 as a result of a management decision to increase the minimum legal mesh size. 
+- Model 3 estimates selectivity in 1 block like model 1 and has natural mortality fixed at 0.7 per year according to estimates found in the scientific literature.
 
 ## Results
 
-Model 2 is most supported by the data according to [AIC](Script/Results/Data/ModelComparisonTable.csv). Results below report a description of the dynamics of this fishery based on this model's parameter estimates.
+Model 2 is most supported by the data according to [AIC](Script/Results/Data/ModelComparisonTable.csv). [This diagnostic plot](Results/Graphics/NbAtAgeOverlayedWithModel.png) shows discrepancies between model 2 and age data. [Profiles](Results/Graphics/Model2-ProfileLikelihood.png) of its negative log-likelihood function are smooth around the minimum for each parameter and allow to visualise the uncertainty associated with each parameter estimate. Results below report a description of the dynamics of this fishery based on this model's parameter estimates.
 
 ### Trends in populations quantities
 
