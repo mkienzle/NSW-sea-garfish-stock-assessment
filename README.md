@@ -22,7 +22,7 @@ So far, three mortality models have been estimated from the data. All models ass
 
 ## Results
 
-Model 2 is most supported by the data according to [AIC](Script/Results/Data/ModelComparisonTable.csv). [This diagnostic plot](Results/Graphics/NbAtAgeOverlayedWithModel.png) shows discrepancies between model 2 and age data. [Profiles](Results/Graphics/Model2-ProfileLikelihood.png) of its negative log-likelihood function are smooth around the minimum for each parameter and allow to visualise the uncertainty associated with each parameter estimate. Results below report a description of the dynamics of this fishery based on this model's parameter estimates.
+Model 2 is most supported by the data according to [AIC](Script/Results/Data/ModelComparisonTable.csv). [This diagnostic plot](Script/Results/Graphics/NbAtAgeOverlayedWithModel.png) shows discrepancies between model 2 and age data. [Profiles](Script/Results/Graphics/Model2-ProfileLikelihood.png) of its negative log-likelihood function are smooth around the minimum for each parameter and allow to visualise the uncertainty associated with each parameter estimate. Results below report a description of the dynamics of this fishery based on this model's parameter estimates.
 
 ### Trends in populations quantities
 
