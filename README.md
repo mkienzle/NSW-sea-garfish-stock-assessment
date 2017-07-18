@@ -10,7 +10,7 @@ The data consist of measurements of [age from a sample of commercial catches](Da
 
 ## Methods
 
-Several models describing how mortality rates varied by age-group through time (depending on fishing effort, catchability and age-specific gear selectivity) were developed. All models presented assumed a constant rate of mortality due to natural causes that was estimated. These mortality models have been expressed using hazard functions and converted into probabilities of dying at age from fishing using methods developed in the field of statistics called survival analysis (https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). These age-specific probabilities of dying from fishing were combined with age data sampled from commercial catches into a likelihood function. A range of hypotheses regarding gear selectivity and natural mortality expressed into the mortality models were compared with Akaike Information Criteria (AIC). 
+Several models describing how mortality rates varied by age-group through time (depending on fishing effort, catchability and age-specific gear selectivity) were developed. All models assume a constant rate of mortality due to natural causes which was estimated. These mortality models have been expressed using hazard functions and converted into probabilities of dying at age from fishing using methods developed in the field of statistics called survival analysis (https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). These age-specific probabilities of dying from fishing were combined with age data sampled from commercial catches into a likelihood function. A range of hypotheses regarding gear selectivity and natural mortality expressed into the mortality models were compared with Akaike Information Criteria (AIC). 
 
 ## Mortality models for sea garfish
 
@@ -40,7 +40,7 @@ Biomass estimates shows the sea garfish stock biomass remained above 100 tonnes 
 
 #### Recruitment estimates
 
-Recruitment was estimated to have varied between 1 and 4 millions new fish each year. In the most recent couple of years, recruitment has been average.
+Recruitment was estimated to have varied between 1 and 3 millions fish each year. In the most recent couple of years, recruitment has been above average.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfRecruitment.png)
 

@@ -33,7 +33,8 @@ p1 <- p1 + theme(axis.text=element_text(size=12), axis.title=element_text(size=1
 p1 <- p1 + theme(legend.title=element_text(size=18))
 
 print(p1)
-pdf(file = "Results/Graphics/NbAtAgeOverlayedWithModel.pdf")
+#pdf(file = "Results/Graphics/NbAtAgeOverlayedWithModel.pdf")
+png(file = "Results/Graphics/NbAtAgeOverlayedWithModel.png")
 print(p1)
 dev.off()
 
