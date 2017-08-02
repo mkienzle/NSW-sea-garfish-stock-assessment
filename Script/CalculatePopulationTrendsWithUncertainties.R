@@ -20,7 +20,7 @@ n.cohort <- nrow(nb.at.age.tmp) + ncol(nb.at.age.tmp) - 1
 n.par <- length(result2$par) # Number of parameters in the best model
 
 # Create a data.frame to hold the resample results
-n.resample <- 1e5
+n.resample <- 1e3
 
 resample.results <- as.data.frame(matrix(nrow = n.resample, ncol = n.par + 1 + n.cohort + n.year))
 dimnames(resample.results)[[2]] <- c(paste("par", 1:n.par, sep=""), "log.lik", paste("rec", 1:n.cohort, sep = ""),
@@ -30,6 +30,7 @@ dimnames(resample.results)[[2]] <- c(paste("par", 1:n.par, sep=""), "log.lik", p
 n.sigma <- 2
 
 for(resample in 1:n.resample){
+print(paste(resample,"/",n.resample,sep=""))
 
 # Create a set of random parameters
 rand.par <- rep(NA,n.par)

@@ -10,8 +10,8 @@ source("DeriveQuantitiesFromModels.R")
 # Load data from profiling the likelihood (created by CalculatePopulationTrendsWithUncertainties.R)
 
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-22-11-45.csv")
-resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
-
+#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
+resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Aug022017-19-20-16.csv")
 # Some useful parameters
 year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
 
@@ -22,17 +22,17 @@ year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
 png("Results/Graphics/EstimateOfRecruitment.png")
 indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
 plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 5e6), axes = FALSE)
-axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
+axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
 abline(h = seq(0,9) * 1e6, col = "lightgrey")
 legend(2004, 5e6, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
-points(seq(2004, 2015), est.rec[indices], pch = 19, type = "b", lty = 1)
+points(year.seq, est.rec[indices], pch = 19, type = "b", lty = 1)
 
 idx.rec.col <- grep("rec", names(resample.results.x))
 
-segments(seq(2004, 2015), apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
-         seq(2004, 2015), apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]])
+segments(year.seq, apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
+         year.seq, apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]])
 
 
 dev.off()
@@ -45,17 +45,17 @@ boxplot(resample.results.x[, 12:23], names = 2004:2015, las = 1, main = "Recruit
 png("Results/Graphics/CompareVariousRecruitmentEstimates.png")
 indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
 plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 5e6), axes = FALSE)
-axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
+axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
 abline(h = seq(0,9) * 1e6, col = "lightgrey")
 legend(2004, 5e6, lty = c(NA, 1,NA), pch = c(19, NA,19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
-points(seq(2004, 2015), est.rec[indices], pch = 19, type = "b", lty = 1)
+points(year.seq, est.rec[indices], pch = 19, type = "b", lty = 1)
 
 idx.rec.col <- grep("rec", names(resample.results.x))
 
-segments(seq(2004, 2015), apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
-         seq(2004, 2015), apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]], lwd = 3.5)
+segments(year.seq, apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
+         year.seq, apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]], lwd = 3.5)
 
 
 old.rec.est <- read.csv("../Data/NSW-Garfish-RecEstimates2004-14.csv")
@@ -67,7 +67,7 @@ dev.off()
 ### Plot biomasses
 
 # Variability of resamples estimates
-boxplot(resample.results.x[, 24:35], names = 2004:2015, las = 1, main = "Biomass estimates (in tonnes) variability")
+boxplot(resample.results.x[, grep("Biomass", names(resample.results.x))], names = year.seq, las = 1, main = "Biomass estimates (in tonnes) variability")
 
 # Estimated number in the catch (at age)
 
@@ -84,21 +84,21 @@ N.at.age <- catch.at.age / F
 #pdf("Results/Graphics/EstimateOfBiomass.pdf")
 png("Results/Graphics/EstimateOfBiomass.png")
 
-plot(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3),
+plot(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3),
 type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 400))
-axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
+axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
 
 abline(h = seq(0,600, 50), col = "lightgrey")
 #abline(h = seq(100,400, 50), col = "lightgrey")
 
-points(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
+points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
 
 legend(2004, 400, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
 
-segments(seq(2004, 2015), apply(resample.results.x[, 24:35],2, min),
-         seq(2004, 2015), apply(resample.results.x[, 24:35],2, max))
+segments(year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min),
+         year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max))
 	 
 dev.off()
 
@@ -106,21 +106,21 @@ dev.off()
 #pdf("Results/Graphics/EstimateOfBiomass.pdf")
 png("Results/Graphics/CompareVariousBiomassEstimates.png")
 
-plot(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3),
+plot(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3),
 type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 400))
-axis(1, at = seq(2004, 2015), label = dimnames(nb.at.age.tmp)[[1]])
+axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
 
 abline(h = seq(0,600, 50), col = "lightgrey")
 #abline(h = seq(100,400, 50), col = "lightgrey")
 
-points(seq(2004, 2015),  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
+points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
 
 legend(2004, 400, lty = c(NA, 1, NA), pch = c(19, NA, 19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
 
-segments(seq(2004, 2015), apply(resample.results.x[, 24:35],2, min),
-         seq(2004, 2015), apply(resample.results.x[, 24:35],2, max), lwd = 3.5)
+segments(year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min),
+         year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max), lwd = 3.5)
 
 old.biomass.est <- read.csv("../Data/NSW-Garfish-BiomassEstimates2004-14.csv")
 with(old.biomass.est, points(Year, EstBiomass, pch = 19, type = "b", col = "red", lty = 2))
