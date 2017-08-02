@@ -30,7 +30,8 @@ estimated.nb.in.catch <- Estimate.NbOfFishInCatch(catch[,1], nb.at.age, weight.a
 
 # Correct age sample by the estimated number of fish in the catch
 nb.at.age.wgt <- weighted.sample2(nb.at.age, estimated.nb.in.catch)
-nb.at.age.wgt <- round(nb.at.age.wgt,0) # suggested by a reviewer of the sea garfish paper
+# nb.at.age.wgt <- round(nb.at.age.wgt,0) # suggested by a reviewer of the sea garfish paper because
+  		   			  # it's not necessary and the last column of age data would be zeroes
 
 nb.at.age.wgt.printout <- nb.at.age.wgt
 dimnames(nb.at.age.wgt.printout) <- dimnames(nb.at.age.tmp)
