@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository provides data, methods, scripts and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). A complete description of this work is available [here](https://arxiv.org/abs/1701.07053).
+This repository provides data, methods, scripts and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). A complete description of this work is available from [Fisheries Research](https://doi.org/10.1016/j.fishres.2017.10.016).
 
 ## Data
 
