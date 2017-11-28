@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository provides data, methods, scripts and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). A complete description of this work is available [here](https://arxiv.org/abs/1701.07053).
+This repository provides data, methods, scripts and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). A complete description of this work is available from [Fisheries Research](https://doi.org/10.1016/j.fishres.2017.10.016).
 
 ## Data
 
@@ -10,7 +10,7 @@ The data consist of measurements of [age from a sample of commercial catches](Da
 
 ## Methods
 
-Several models describing how mortality rates varied by age-group through time (depending on fishing effort, catchability and age-specific gear selectivity) were developed. All models assume a constant rate of mortality due to natural causes which was estimated. These mortality models have been expressed using hazard functions and converted into probabilities of dying at age from fishing using methods developed in the field of statistics called survival analysis (https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). These age-specific probabilities of dying from fishing were combined with age data sampled from commercial catches into a likelihood function. A range of hypotheses regarding gear selectivity and natural mortality expressed into the mortality models were compared with Akaike Information Criteria (AIC). 
+Several models describing how mortality rates varied by age-group through time (depending on fishing effort, catchability and age-specific gear selectivity) were developed. All models assume a constant rate of mortality due to natural causes which was estimated. These mortality models have been expressed using hazard functions and converted into probabilities of dying at age from fishing using methods developed in the field of statistics called [survival analysis](https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). These age-specific probabilities of dying from fishing were combined with age data sampled from commercial catches into a likelihood function. A range of hypotheses regarding gear selectivity and natural mortality expressed into the mortality models were compared with Akaike Information Criteria (AIC). 
 
 ## Mortality models for sea garfish
 
@@ -28,13 +28,13 @@ Model 2 is most supported by the data according to [AIC](Script/Results/Data/Mod
 
 #### Mortality rates
 
-The mortality model most supported by the data show a decline of fishing mortality rates to below natural mortality from 2010/11 onward. The decrease in age-group 0-1 retention in the gear combined with decreasing fishing effort reduced fishing mortality on the youngest age-group to a negligible level.
+The mortality model most supported by the data shows a decline of fishing mortality rates to below natural mortality from 2010/11 onward. The decrease in age-group 0-1 retention in the gear combined with decreasing fishing effort reduced fishing mortality on the youngest age-group to a negligible level.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Mod2-MortalityEstimates.png)
 
 #### Biomass estimates
 
-Biomass estimates shows the sea garfish stock biomass remained above 100 tonnes since 2009/10.
+Biomass estimates show that sea garfish stock biomass remained at or above 100 tonnes since 2009/10.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfBiomass.png)
 
