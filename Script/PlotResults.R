@@ -10,8 +10,8 @@ source("DeriveQuantitiesFromModels.R")
 # Load data from profiling the likelihood (created by CalculatePopulationTrendsWithUncertainties.R)
 
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-22-11-45.csv")
-#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
-resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Aug022017-19-20-16.csv")
+resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
+#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Aug022017-19-20-16.csv")
 # Some useful parameters
 year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
 
@@ -97,14 +97,9 @@ points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b"
 
 legend(2004, 400, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
 
-<<<<<<< HEAD
 segments(year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min),
          year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max))
-=======
-segments(year.seq, apply(resample.results.x[, 24:35],2, min),
-         year.seq, apply(resample.results.x[, 24:35],2, max))
->>>>>>> 6fcb575153f4ceb88ee26f6c1b79a50972afab78
-	 
+
 dev.off()
 
 # Compare with previous years results
@@ -124,13 +119,8 @@ points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b"
 
 legend(2004, 400, lty = c(NA, 1, NA), pch = c(19, NA, 19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
 
-<<<<<<< HEAD
 segments(year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min),
          year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max), lwd = 3.5)
-=======
-segments(year.seq, apply(resample.results.x[, 24:35],2, min),
-         year.seq, apply(resample.results.x[, 24:35],2, max), lwd = 3.5)
->>>>>>> 6fcb575153f4ceb88ee26f6c1b79a50972afab78
 
 old.biomass.est <- read.csv("../Data/NSW-Garfish-BiomassEstimates2004-14.csv")
 with(old.biomass.est, points(Year, EstBiomass, pch = 19, type = "b", col = "red", lty = 2))
