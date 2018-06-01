@@ -10,7 +10,9 @@ source("DeriveQuantitiesFromModels.R")
 # Load data from profiling the likelihood (created by CalculatePopulationTrendsWithUncertainties.R)
 
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-22-11-45.csv")
-resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
+#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
+#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-May312018-17-43-11.csv")
+resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jun022018-07-17-17.csv")
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Aug022017-19-20-16.csv")
 # Some useful parameters
 year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
@@ -31,11 +33,18 @@ points(year.seq, est.rec[indices], pch = 19, type = "b", lty = 1)
 
 idx.rec.col <- grep("rec", names(resample.results.x))
 
-segments(year.seq, apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]],
-         year.seq, apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]])
+lower.bound <- apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]]
+upper.bound <- apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]]
+
+segments(year.seq, lower.bound,
+         year.seq, upper.bound)
 
 
 dev.off()
+
+# save results
+df <- data.frame("Year" = year.seq, "EstRec" = est.rec[indices], "X95CI.LowBound" = lower.bound,"X95CI.HighBound" = upper.bound)
+write.csv(df, file = paste("../Data/NSW-Garfish-RecEstimates", year.seq[1],"-", substr(year.seq[length(year.seq)],3,4), ".csv", sep=""))
 
 # Plot the variability of recruitment estimate from profile likelihood
 boxplot(resample.results.x[, 12:23], names = 2004:2015, las = 1, main = "Recruitment estimate variability")
@@ -58,7 +67,7 @@ segments(year.seq, apply(resample.results.x, 2, min)[idx.rec.col[ncol(nb.at.age.
          year.seq, apply(resample.results.x, 2, max)[idx.rec.col[ncol(nb.at.age.tmp):length(idx.rec.col)]], lwd = 3.5)
 
 
-old.rec.est <- read.csv("../Data/NSW-Garfish-RecEstimates2004-14.csv")
+old.rec.est <- read.csv(paste("../Data/NSW-Garfish-RecEstimates2004-", as.numeric(substr(year.seq[length(year.seq)],3,4))-1,".csv", sep=""))
 with(old.rec.est, points(Year, EstRec, pch = 19, type = "b", col = "red", lty = 2))
 with(old.rec.est, segments(Year, X95CI.LowBound, Year, X95CI.HighBound, col = "red", lwd = 2))
 
@@ -97,10 +106,17 @@ points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b"
 
 legend(2004, 400, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
 
-segments(year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min),
-         year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max))
+lower.bound <- apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min)
+upper.bound <- apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max)
+
+segments(year.seq, lower.bound,
+         year.seq, upper.bound)
 
 dev.off()
+
+# save results
+df <- data.frame("Year" = year.seq, "EstBiomass" = rowSums(N.at.age * weight.at.age * 1e-3), "X95CI.LowBound" = lower.bound,"X95CI.HighBound" = upper.bound)
+write.csv(df, file = paste("../Data/NSW-Garfish-BiomassEstimates", year.seq[1],"-", substr(year.seq[length(year.seq)],3,4), ".csv", sep=""))
 
 # Compare with previous years results
 #pdf("Results/Graphics/EstimateOfBiomass.pdf")
@@ -122,7 +138,7 @@ legend(2004, 400, lty = c(NA, 1, NA), pch = c(19, NA, 19), col = c("black", "bla
 segments(year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min),
          year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max), lwd = 3.5)
 
-old.biomass.est <- read.csv("../Data/NSW-Garfish-BiomassEstimates2004-14.csv")
+old.biomass.est <- read.csv(paste("../Data/NSW-Garfish-BiomassEstimates2004-", as.numeric(substr(year.seq[length(year.seq)],3,4))-1,".csv",sep = ""))
 with(old.biomass.est, points(Year, EstBiomass, pch = 19, type = "b", col = "red", lty = 2))
 with(old.biomass.est, segments(Year, X95CI.LowBound, Year, X95CI.HighBound, col = "red", lwd = 2))
 
