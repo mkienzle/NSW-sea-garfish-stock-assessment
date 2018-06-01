@@ -150,7 +150,7 @@ dev.off()
 png(file = "Results/Graphics/Mod2-MortalityEstimates.png")
 plot( seq(1, nrow(nb.at.age.wgt)), result2$par[1] * csf * (effort * s.at.age.model2)[,2], pch = 19, type = "b",
       axes = FALSE, xlab = "", ylab = "mortality rates (1/year)", ylim = c(0,2.0))
-polygon(x=c(0,13, 13, 0), y = c(result2$par[2] - 2 * errors2[2], result2$par[2] - 2 * errors2[2], result2$par[2] + 2 * errors2[2], result2$par[2] + 2 * errors2[2]), col = "lightgrey", border = "transparent")
+polygon(x=c(0,nrow(nb.at.age.wgt)+1, nrow(nb.at.age.wgt)+1, 0), y = c(result2$par[2] - 2 * errors2[2], result2$par[2] - 2 * errors2[2], result2$par[2] + 2 * errors2[2], result2$par[2] + 2 * errors2[2]), col = "lightgrey", border = "transparent")
 abline(h = result2$par[2])
 
 CI.mean <- result2$par[1] * csf * (effort * s.at.age.model2)[,2]
