@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# MODIFIED 4 June 2018
+
+# PURPOSE summarise all analyses performed for NSW sea garfish stock assessment
+
+### Estimate mortality rates
+Rscript FitModels.R
+Rscript DiagnosticPlots.R # requested by reviewers
+
+
+
 # Model 1
 #Rscript ProfileLikelihoodOfCatchability.R
 #Rscript ProfileLikelihoodOfNaturalMortality.R
