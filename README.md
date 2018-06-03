@@ -40,7 +40,7 @@ Biomass estimates show that sea garfish stock biomass remained at or above 100 t
 
 #### Recruitment estimates
 
-Recruitment was estimated to have varied between 1 and 3 millions fish each year. In the most recent couple of years, recruitment has been above average.
+Recruitment was estimated to have varied between 1 and 4 millions fish each year. 2008/9 was estimated to be the largest, presumably leading to the increase in biomass estimated in 2009/10. 2013/14 was estimated to be the second largest recruitment but did not translate into an increase in biomass in 2014/15. In the most recent couple of years, recruitment has be very low: 2015/16 recruitment was estimated to be the lowest in the timeseries.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfRecruitment.png)
 
