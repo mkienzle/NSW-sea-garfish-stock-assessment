@@ -118,6 +118,10 @@ dev.off()
 df <- data.frame("Year" = year.seq, "EstBiomass" = rowSums(N.at.age * weight.at.age * 1e-3), "X95CI.LowBound" = lower.bound,"X95CI.HighBound" = upper.bound)
 write.csv(df, file = paste("../Data/NSW-Garfish-BiomassEstimates", year.seq[1],"-", substr(year.seq[length(year.seq)],3,4), ".csv", sep=""))
 
+df2 <- data.frame("Year" = year.seq, "EstSSB" = rowSums( (N.at.age * weight.at.age * 1e-3)[,-1]))
+write.csv(df2, file = paste("../Data/NSW-Garfish-SSBEstimates", year.seq[1],"-", substr(year.seq[length(year.seq)],3,4), ".csv", sep=""))
+
+
 # Compare with previous years results
 #pdf("Results/Graphics/EstimateOfBiomass.pdf")
 png("Results/Graphics/CompareVariousBiomassEstimates.png")
@@ -174,4 +178,50 @@ legend(4, 2.0, pch = c(19, 18, NA), lty = rep(1,3), legend = c("Fish. mort. on f
 box()
 dev.off()
 
+### Stock recruitment relationship
 
+## Plot recruitment against SSB
+
+# Load the data
+ssb <- read.csv("../Data/NSW-Garfish-SSBEstimates2004-16.csv")
+rec <- read.csv("../Data/NSW-Garfish-RecEstimates2004-16.csv")
+
+# Take only the first 10 estimates because we saw that the most recent recruitment estimates (those depending on 1 or 2 age-groups)
+# vary substantially as we collect more data
+range <- 1:10
+
+plot(ssb$EstSSB[-nrow(ssb)][range], rec$EstRec[-1][range], pch = 19, ylim = c(0,5e6), xlim = c(0,200))
+segments(ssb$EstSSB[-nrow(ssb)][range], rec$X95CI.LowBound[-1][range],
+ssb$EstSSB[-nrow(ssb)][range], rec$X95CI.HighBound[-1][range])
+
+x <- ssb$EstSSB[-nrow(ssb)][range]
+y <- rec$EstRec[-1][range]
+
+# According to Hilborn and Walters, you can linearize the Ricker function as follow
+
+dataset <- data.frame( Year = rec$Year[-1][range], y = log(y/x), x = x)
+lm1 <- lm(y ~ x, dataset)
+
+# on the transformed scale
+png(file = "Results/Graphics/LinearizedRickerSRR.png")
+with(dataset, plot(x, y, pch = 19, xlab = "Spawning Stock Biomass (S)", ylab = "log(R/S)" ))
+abline(lm1)
+
+
+x.seq <- seq(0, 200, 1)
+pred <- predict(lm1, newdata = data.frame(x = x.seq), interval = "prediction")
+
+lines(x.seq, pred[,3], lty = 2)
+lines(x.seq, pred[,2], lty = 2)
+dev.off()
+
+# on the natural scale
+png(file = "Results/Graphics/RickerSRROnNaturalScale.png")
+plot(ssb$EstSSB[-nrow(ssb)][range], rec$EstRec[-1][range], xlab = "Spawning Stock Biomass", ylab = "Number of recruits", pch = 19, ylim = c(0,7e6), xlim = c(0,200), las = 1)
+segments(ssb$EstSSB[-nrow(ssb)][range], rec$X95CI.LowBound[-1][range],
+ssb$EstSSB[-nrow(ssb)][range], rec$X95CI.HighBound[-1][range])
+
+lines(x.seq, x.seq * exp(pred[,1]))
+lines(x.seq, x.seq * exp(pred[,2]), lty =2)
+lines(x.seq, x.seq * exp(pred[,3]), lty = 2)
+dev.off()
