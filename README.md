@@ -8,7 +8,7 @@ This repository provides data, methods, scripts and results used to estimate the
 
 The data consist of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
 
-Catch in this fishery have been relatively stable, around 45 +- 18 tonnes. The reported catch in 2009/10 is unusually large and concomitant with the fishery management to increase mesh size. Fishing effort declined sharply since 2004/05, suggesting an increase in catch per unit effort in this fishery.
+Catch in this fishery have been relatively stable, around 45 +- 18 tonnes, with 2009/10 showing a larger than usual yield. Fishing effort declined sharply since 2004/05, as a result catch per unit effort increased over time.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/CatchAndEffortVariations.png)
 
