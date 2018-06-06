@@ -217,7 +217,7 @@ dev.off()
 
 # on the natural scale
 png(file = "Results/Graphics/RickerSRROnNaturalScale.png")
-plot(ssb$EstSSB[-nrow(ssb)][range], rec$EstRec[-1][range], xlab = "Spawning Stock Biomass", ylab = "Number of recruits", pch = 19, ylim = c(0,7e6), xlim = c(0,200), las = 1)
+plot(ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$EstRec[-1][range], xlab = "Spawning Stock Biomass", ylab = "Number of recruits (in millions)", pch = 19, ylim = c(0,7e6), xlim = c(0,200), las = 1)
 segments(ssb$EstSSB[-nrow(ssb)][range], rec$X95CI.LowBound[-1][range],
 ssb$EstSSB[-nrow(ssb)][range], rec$X95CI.HighBound[-1][range])
 
