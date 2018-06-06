@@ -8,7 +8,7 @@ This repository provides data, methods, scripts and results used to estimate the
 
 The data consist of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
 
-Catch in this fishery have been relatively stable, around 45 +- 18 tonnes. Fishing effort declined sharply since 2004/05, suggesting an increase in catch per unit effort in this fishery.
+Catch in this fishery have been relatively stable, around 45 +- 18 tonnes. The reported catch in 2009/10 is unusually large and concomitant with the fishery management to increase mesh size. Fishing effort declined sharply since 2004/05, suggesting an increase in catch per unit effort in this fishery.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/CatchAndEffortVariations.png)
 
@@ -18,7 +18,7 @@ Several models describing how mortality rates varied by age-group through time (
 
 ## Mortality models for sea garfish
 
-So far, three mortality models have been estimated from the data. All models assume constant natural mortality; full gear selection by the gear for age group 1-2 years old and older.
+So far, three mortality models have been estimated from the data. All models assume constant natural mortality; full selection by the gear for age group 1-2 years old and older.
 
 - Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have remained constant throughout the entire time series. 
 - Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11 as a result of a management decision to increase the minimum legal mesh size. 
