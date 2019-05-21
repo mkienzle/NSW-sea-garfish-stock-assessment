@@ -1,5 +1,5 @@
 # CREATED  13 Dec 2016
-# MODIFIED 20 Apr 2017
+# MODIFIED 19 May 2019
 
 # PURPOSE estimate abundance and recruitment point estimates and uncertainties
 
@@ -62,7 +62,7 @@ s.at.age.model2 <-rbind( outer(rep(1,6), c(rand.par[3], rep(1,5))),
 
 F <- rand.par[1] * csf * (effort * s.at.age.model2)
 M <- rand.par[2]
-mu <-  F/(F+M) * (1-exp(-(F+M)))# Quinn and Deriso (1999) (Eq. 8.58)
+#mu <-  F/(F+M) * (1-exp(-(F+M)))# Quinn and Deriso (1999) (Eq. 8.58)
 #N.at.age <- catch.at.age / mu
 N.at.age <- catch.at.age / F
 prop.in.population <- N.at.age / outer(rowSums(N.at.age), rep(1, ncol(nb.at.age)))
@@ -78,5 +78,6 @@ resample.results.x <- subset(resample.results, (log.lik - result2$value) <= (0.5
 
 # Save the results
 write.csv(resample.results.x, file = paste("Results/Data/ProfileLikelihoodOfRecruitmentEstimates-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".csv", sep=""))
+write.csv(resample.results.x, file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates.csv")
 
 

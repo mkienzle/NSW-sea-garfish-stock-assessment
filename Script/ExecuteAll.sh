@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# MODIFIED 4 June 2018
+# CREATED   4 June 2018
+# MODIFIED 19 May  2019
 
 # PURPOSE summarise all analyses performed for NSW sea garfish stock assessment
 
@@ -9,12 +10,12 @@ Rscript FisheriesStatistics.R
 
 ### Estimate mortality rates
 Rscript FitModels.R
-Rscript DiagnosticPlots.R # requested by reviewers
 
 
 ### Calculate abundance and recruitment (with uncertainties) using the model that best fit the age data
 Rscript CalculatePopulationTrendsWithUncertainties.R # The outputs of this scripts ( ProfileLikelihoodOfRecruitmentEstimatesXXX)
                                                      # has to be edited in PlotResults.R 
+Rscript DiagnosticPlots.R # requested by reviewers
 
 # plot timeseries of abundance, recruitment, ... with uncertainties
 Rscript PlotResults.R

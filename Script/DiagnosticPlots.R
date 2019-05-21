@@ -1,5 +1,5 @@
 # CREATED  18 April 2017
-# MODIFIED 18 April 2017
+# MODIFIED 19 May   2019
 
 # PURPOSE diagnostic of the model
 
@@ -24,7 +24,7 @@ Est.nb.at.age <- Coaa2Caaa(tmp * outer(rowSums(Caaa2Coaa(nb.at.age), na.rm = T),
 
 tmp.data <- data.frame(Year = rep(dimnames(nb.at.age.tmp)[[1]], ncol(nb.at.age.tmp)) , Age.Group = rep(1:ncol(nb.at.age.tmp), each = nrow(nb.at.age.tmp)), nb.at.age = c(nb.at.age), Surv.analysis = c(Est.nb.at.age));
 tmp.data[,3] <- replace(tmp.data[,3], tmp.data[,3] == 0, NA)
-library(reshape); df.melted <- melt(tmp.data, id = c("Year", "Age.Group")); head(df.melted)
+library(reshape2); df.melted <- melt(tmp.data, id = c("Year", "Age.Group")); head(df.melted)
 
 p1 <- ggplot(df.melted, aes(Age.Group, y=value, colour = variable, shape = variable)) + geom_point() + facet_wrap(~Year, nrow = 2)
 p1 <- p1 + scale_shape_manual(values = c(16, 3)) + scale_colour_manual(values = c("black", "red"))
@@ -71,7 +71,9 @@ box()
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Apr202017-16:32:27.csv")
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-May092017-15:11:49.csv")
 #resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jul062017-23-30-48.csv")
-resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jun022018-07-17-17.csv")
+#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-Jun022018-07-17-17.csv")
+#resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates-May192019-17-35-57.csv")
+resample.results.x <- read.csv(file = "Results/Data/ProfileLikelihoodOfRecruitmentEstimates.csv")
 
 #pred.catch <- apply(resample.results.x,2,mean)[grep("Biomass", names(resample.results.x))]
 
