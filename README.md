@@ -8,7 +8,7 @@ This repository provides data, methods, scripts and results used to estimate the
 
 The data consist of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
 
-Catch in this fishery have been relatively stable, around 45 +- 18 tonnes, with 2009/10 showing a larger than usual yield. Fishing effort declined sharply since 2004/05, as a result catch per unit effort increased over time.
+Up to 2016/17, catches in this fishery were relatively stable, around 45 +- 18 tonnes, with 2009/10 showing a larger than usual yield. 2017/18 showed a substantial decline in catch. Fishing effort declined sharply since 2004/05, as a result catch per unit effort increased over time.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/CatchAndEffortVariations.png)
 
@@ -32,19 +32,19 @@ Model 2 is most supported by the data according to [AIC](Script/Results/Data/Mod
 
 #### Mortality rates
 
-The mortality model most supported by the data shows a decline of fishing mortality rates to below natural mortality from 2010/11 onward. The decrease in age-group 0-1 retention in the gear combined with decreasing fishing effort reduced fishing mortality on the youngest age-group to a negligible level.
+The mortality model most supported by the data shows a decline of fishing mortality rates to below natural mortality from 2009/10 onward. The decrease in age-group 0-1 retention in the gear combined with decreasing fishing effort reduced fishing mortality on the youngest age-group to a negligible level.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Mod2-MortalityEstimates.png)
 
 #### Biomass estimates
 
-Biomass estimates show that sea garfish stock biomass remained at or above 100 tonnes since 2009/10.
+Model 2 estimates sea garfish biomass biomass remained at or above 100 tonnes since 2009/10. This stock's biomass have been slowly trending upward since 2008/09.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfBiomass.png)
 
 #### Recruitment estimates
 
-Recruitment was estimated to have varied between 1 and 4 millions fish each year. 2008/9 was estimated to be the largest, presumably leading to the increase in biomass estimated in 2009/10. 2013/14 was estimated to be the second largest recruitment but did not translate into an increase in biomass in 2014/15. In the most recent couple of years, recruitment has been very low: 2015/16 recruitment was estimated to be the lowest in the timeseries.
+Recruitment was estimated to have varied between 1 and 4 millions fish each year. 2008/9 had the largest recruitment estimate, presumably leading to the increase in biomass estimated in 2009/10. 2013/14 was estimated to be the third largest recruitment but did not translate into an increase in biomass in 2014/15. The most recent estimate of recruitment (2017/18) is the second largest and follows two very low recruitments in 2015/16 and 2016/17.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfRecruitment.png)
 
