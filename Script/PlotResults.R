@@ -1,5 +1,5 @@
 # CREATED  16 Dec 2016
-# MODIFIED 19 May 2019
+# MODIFIED 19 Oct 2019
 
 # PURPOSE plot results on various analysis
 
@@ -61,12 +61,12 @@ boxplot(resample.results.x[, 12:23], names = 2004:2015, las = 1, main = "Recruit
 png("Results/Graphics/CompareVariousRecruitmentEstimates.png")
 #postscript("Results/Graphics/CompareVariousRecruitmentEstimates.ps")
 indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
-plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 6e6), axes = FALSE)
+plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 1.2e7), axes = FALSE)
 axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
-abline(h = seq(0,9) * 1e6, col = "lightgrey")
-legend(2004, 6e6, lty = c(NA, 1,NA), pch = c(19, NA,19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
+abline(h = seq(0,15) * 1e6, col = "lightgrey")
+legend(2004, 1.2e7, lty = c(NA, 1,NA), pch = c(19, NA,19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
 points(year.seq, est.rec[indices], pch = 19, type = "b", lty = 1)
 
 idx.rec.col <- grep("rec", names(resample.results.x))
@@ -105,7 +105,7 @@ par(cex.lab = 1.8, cex.main = 2, mai = c(1.02, 1.0, 0.82, 0.42), cex.axis = 1.4)
 #print(par()$mai)
 
 plot(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3),
-type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 400))
+type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 500))
 axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
@@ -115,7 +115,7 @@ abline(h = seq(0,600, 50), col = "lightgrey")
 
 points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
 
-legend(2004, 400, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
+legend(2004, 500, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
 
 lower.bound <- apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min)
 upper.bound <- apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max)
@@ -141,7 +141,7 @@ write.csv(df2, file = "../Data/NSW-Garfish-SSBEstimates.csv")
 png("Results/Graphics/CompareVariousBiomassEstimates.png")
 
 plot(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3),
-type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 400))
+type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 550))
 axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
@@ -151,7 +151,7 @@ abline(h = seq(0,600, 50), col = "lightgrey")
 
 points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
 
-legend(2004, 400, lty = c(NA, 1, NA), pch = c(19, NA, 19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
+legend(2004, 550, lty = c(NA, 1, NA), pch = c(19, NA, 19), col = c("black", "black", "red"), legend = c("ML estimate", "95% CI", "last year estimates"), bg = "white")
 
 segments(year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, min),
          year.seq, apply(resample.results.x[, grep("Biomass", names(resample.results.x))],2, max), lwd = 3.5)
@@ -232,7 +232,7 @@ dev.off()
 
 # on the natural scale
 png(file = "Results/Graphics/RickerSRROnNaturalScale.png")
-plot(ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$EstRec[-1][range], xlab = "Spawning Stock Biomass", ylab = "Number of recruits (in millions)", pch = 19, ylim = c(0,9), xlim = c(0,200), las = 1)
+plot(ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$EstRec[-1][range], xlab = "Spawning Stock Biomass", ylab = "Number of recruits (in millions)", pch = 19, ylim = c(0,12), xlim = c(0,200), las = 1)
 segments(ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$X95CI.LowBound[-1][range],
 ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$X95CI.HighBound[-1][range])
 
