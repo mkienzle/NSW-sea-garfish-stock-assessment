@@ -26,15 +26,15 @@ year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
 #pdf("Results/Graphics/EstimateOfRecruitment.pdf")
 png("Results/Graphics/EstimateOfRecruitment.png")
 #postscript("Results/Graphics/EstimateOfRecruitment.ps")
-par(cex.lab = 1.8, cex.main = 2, mai = c(1.02, 1.0, 0.82, 0.42), cex.axis = 1.4) # For presentation
+par(cex.lab = 1.8, cex.main = 2, mai = c(1.02, 1.2, 0.82, 0.42), cex.axis = 1.4) # For presentation
 #par(cex.lab = 1.8, cex.main = 2) # For presentation
 indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
-plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 6e6), axes = FALSE)
+plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 1.2e7), axes = FALSE)
 axis(1, at = year.seq, label = dimnames(nb.at.age.tmp)[[1]])
 axis(2, las = 1)
 box()
-abline(h = seq(0,9) * 1e6, col = "lightgrey")
-legend(2004, 6e6, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
+abline(h = seq(0,12) * 1e6, col = "lightgrey")
+legend(2004, 1.2e7, lty = c(NA, 1), pch = c(19, NA), legend = c("ML estimate", "95% CI"), bg = "white")
 points(year.seq, est.rec[indices], pch = 19, type = "b", lty = 1)
 
 idx.rec.col <- grep("rec", names(resample.results.x))
@@ -111,6 +111,8 @@ axis(2, las = 1)
 box()
 
 abline(h = seq(0,600, 50), col = "lightgrey")
+abline(h = c(100,200), col = "darkgrey")
+
 #abline(h = seq(100,400, 50), col = "lightgrey")
 
 points(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3), pch = 19, type = "b", lty = 2)
