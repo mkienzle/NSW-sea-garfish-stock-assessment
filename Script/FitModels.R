@@ -35,7 +35,7 @@ lower.bound <- c(5e-2,1e-2, 1e-2, 1e-4);upper.bound <- c(15,2,1,1)
 
 csf <- 1e-3 # catchability scaling factor
 
-result2 <- optim(par = c(1.0, 0.2, 0.1, 0.1), fn = ll.model2, catch = nb.at.age.wgt, effort = effort, catchability.scaling.factor = csf, method = c("L-BFGS-B"),
+result2 <- optim(par = c(1.0, 0.2, 0.1, 0.1), fn = ll.model2, catch = nb.at.age.wgt, effort = effort * outer(1. ^ seq(0,14), rep(1,6)), catchability.scaling.factor = csf, method = c("L-BFGS-B"),
        lower = lower.bound, upper = upper.bound, hessian = TRUE)
 
 print(result2)
