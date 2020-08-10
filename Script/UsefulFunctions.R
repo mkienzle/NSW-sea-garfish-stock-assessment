@@ -76,6 +76,7 @@ ll.model1 <- function(par, catch, effort, catchability.scaling.factor){
     -sum(catch.by.cohort[index] * log( P[index] / total.over.lines(P)[index]))
 }
 
+# model 2
 prob.for.ll.model2 <- function(par, effort, catchability.scaling.factor){
 
     #print(par)
@@ -123,6 +124,8 @@ ll.model2 <- function(par, catch, effort, catchability.scaling.factor){
     # Negative log-likelihood
     -sum(catch.by.cohort[index] * log( P[index] / total.over.lines(P)[index]))
 }
+
+
 
 ## Here we shift the selectivity block 1 year earlier compared to model2
 prob.for.ll.model2.1 <- function(par, effort, catchability.scaling.factor){
@@ -173,6 +176,59 @@ ll.model2.1 <- function(par, catch, effort, catchability.scaling.factor){
     -sum(catch.by.cohort[index] * log( P[index] / total.over.lines(P)[index]))
 }
 
+## Here we estimate 1 more selectivity parameter, for the 2nd age group
+
+prob.for.ll.model2.2 <- function(par, effort, catchability.scaling.factor){
+
+    #print(par)
+    if(length(which(par<0)) > 0){ return(1e6)}
+    # Re-arrange input data into cohorts
+    catch.by.cohort <- Caaa2Coaa(catch)
+    effort.by.cohort <- Caaa2Coaa(effort)
+
+    # Allocate param to readable variable names
+    q <- par[1] * catchability.scaling.factor
+    M <- par[2]
+    selectivity.at.age <-rbind( outer(rep(1,6), c(par[3], par[5], rep(1,4))),
+    		                outer(rep(1,nrow(effort)-6), c(par[4], par[6], rep(1,4))))
+    
+    # matrix of fishing mortality
+    #F <- q * effort.by.cohort * outer(rep(1, nrow(effort.by.cohort)), selectivity.at.age)
+    F <- q * effort.by.cohort * Caaa2Coaa(selectivity.at.age)
+
+    # total mortality
+    Z <- M + F
+
+    # cumulative mortality
+    cum.Z <- my.cumsum(Z)
+
+    # Calculate the probability of observation in each interval
+    prob1 <- F/Z * (1 - exp(-cum.Z))
+    prob2 <- F/Z * (1 - exp(-(cum.Z-Z)))
+    P <- prob1-prob2
+return(P)
+}
+
+
+ll.model2.2 <- function(par, catch, effort, catchability.scaling.factor){
+
+    #print(par)
+    if(length(which(par<0)) > 0){ return(1e6)}
+    # Re-arrange input data into cohorts
+    catch.by.cohort <- Caaa2Coaa(catch)
+
+    P <- prob.for.ll.model2.2(par, effort, catchability.scaling.factor)
+    
+    # discard zeroes and NA from sum of logs
+    index <- which(!is.na(catch.by.cohort) & P!=0)
+    #print(length(index))
+    if(length(index)<66){ return(1e6) }
+    # Negative log-likelihood
+    -sum(catch.by.cohort[index] * log( P[index] / total.over.lines(P)[index]))
+}
+
+
+# Model 3
 ll.model3 <- function(par, catch, effort, catchability.scaling.factor){
     #print(par)
     if(length(which(par<0)) > 0){ return(1e6)}
@@ -222,7 +278,7 @@ prob.for.ll.model5 <- function(par, effort, catchability.scaling.factor){
     q <- par[1] * catchability.scaling.factor
     M <- par[2]
     selectivity.at.age <-rbind( outer(rep(1,6), logistic(par[3], par[4], seq(0,5))),
-    		                outer(rep(1,5), logistic(par[5], par[4], seq(0,5))))
+    		                outer(rep(1,nrow(effort)-6), logistic(par[5], par[6], seq(0,5))))
     
     # matrix of fishing mortality
     #F <- q * effort.by.cohort * outer(rep(1, nrow(effort.by.cohort)), selectivity.at.age)

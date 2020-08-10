@@ -16,13 +16,17 @@ Catches in this fishery have been relatively stable, in average 43 +- 18 tonnes.
 
 Several models describing how mortality rates varied by age-group through time (depending on fishing effort, catchability and age-specific gear selectivity) were developed. All models assume a constant rate of mortality due to natural causes which was estimated. These mortality models have been expressed using hazard functions and converted into probabilities of dying at age from fishing using a method developed in the field of statistics called [survival analysis](https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). These age-specific probabilities of dying from fishing were combined with age data sampled from commercial catches into a likelihood function. A range of hypotheses regarding gear selectivity and natural mortality expressed into the mortality models were compared with Akaike Information Criteria (AIC). 
 
-## Mortality models for sea garfish
+### Mortality models for sea garfish
 
 So far, three mortality models have been estimated from the data. All models assume constant natural mortality; full selection by the gear for age group 1-2 years old and older.
 
 - Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have remained constant throughout the entire time series. 
 - Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11 as a result of a management decision to increase the minimum legal mesh size. 
 - Model 3 estimates selectivity in 1 block like model 1 and has natural mortality fixed at 0.7 per year according to estimates found in the scientific literature.
+
+### Maximum Sustainable Yield (MSY)
+
+An estimate of MSY was obtained by simulating the exploitation of this stock, using the best fishery model calibrated to the data, 200 years into the future using various constant level of fishing effort. This approach produced the typical dome shaped curve between catch and fishing effort from which we derived MSY and effort at MSY. 
 
 ## Results
 
@@ -52,3 +56,9 @@ Recruitment was estimated to have varied between 1 and 5 millions fish each year
 There start to be enough recruitment estimates (14) to begin looking at the relationship between stock and recruitment. We assumed that seagarfish age 1+ are sexually mature. The plot of recruitment estimates against spawning stock biomass (SSB) estimates, fitted with a Ricker stock-recruitment function, suggests that the Ricker model might provide useful information about the level of SSB that produces the largest amount of recruits.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/RickerSRROnNaturalScale.png)
+
+### Maximum Sustainable Yield (MSY)
+
+The simulation study that projected this stock into the future using constant level of effort produced the result shown below. From this graphics, we estimated that this stock can produce, in average, a maximum of 78 tonnes per year when a constant effort of 700 boat-days is applied.
+
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Model2-MSYcomputations-Plot-Aug052020-19-22-46.png)
