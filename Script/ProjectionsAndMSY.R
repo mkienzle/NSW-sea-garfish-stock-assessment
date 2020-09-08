@@ -146,5 +146,13 @@ for(j in 1:nrow(res)){
 save(res, file = paste("Results/Data/Model2-MSYcomputations-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".RData", sep=""))
 
 png(file = paste("Results/Graphics/Model2-MSYcomputations-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
-with(res, boxplot(1e-3 * Catch ~ as.factor(round(Effort,1)), xlab = "Effort (boat-days)", ylab = "Catch (tonnes)", las = 1))
+#with(res, boxplot(1e-3 * Catch ~ as.factor(round(Effort,1)), xlab = "Effort (boat-days)", ylab = "Catch (tonnes)", las = 1))
+with(res, boxplot(1e-3 * Catch ~ as.factor(round(Effort,0)), axes = FALSE, xlab = "Effort (boat-days)",
+	  ylab = "Catch (tonnes)", las = 1));
+axis(1, at = seq(1, 50,2), label = round(sort(unique(res$Effort))[seq(1,50,2)]),1);
+axis(2, las = 1);
+box();
+abline(h=78, col = "blue", lty = 2);
+abline(v = 15, col = "blue", lty = 2);
+
 dev.off()
