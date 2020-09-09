@@ -24,7 +24,7 @@ So far, three mortality models have been estimated from the data. All models ass
 - Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11 as a result of a management decision to increase the minimum legal mesh size. 
 - Model 3 estimates selectivity in 1 block like model 1 and has natural mortality fixed at 0.7 per year according to estimates found in the scientific literature.
 
-(A Bayesian Approach to assess this stock)[A_Bayesian_Approach.md]
+[A Bayesian Approach to assess this stock](A_Bayesian_Approach.md)
 
 ### Maximum Sustainable Yield (MSY)
 
