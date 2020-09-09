@@ -7,6 +7,7 @@ The parameter of the best model, model 2, are estimated using Monte Carlo Markov
 ## Results
 
 The traces of the MCMC show that the MCMC converged very quickly
+
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png)
 
 
