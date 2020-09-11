@@ -64,3 +64,7 @@ There start to be enough recruitment estimates (14) to begin looking at the rela
 The simulation study that projected this stock into the future using constant level of effort produced the result shown below. From this graphics, we estimated that this stock can produce, in average, a maximum of 78 tonnes per year when a constant effort of 700 boat-days is applied.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Model2-MSYcomputations-Plot-Aug132020-07-32-39.png)
+
+The average spawning stock biomass (SSB) at the level of effort, SSB at MSY, is 62 tonnes.
+
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Model2-MSYcomputations-SSB-Plot-Sep122020-07-46-50.png)

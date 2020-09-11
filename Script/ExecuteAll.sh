@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# CREATED   4 June 2018
-# MODIFIED 19 May  2019
+# CREATED   4 Jun 2018
+# MODIFIED 11 Sep 2020
 
 # PURPOSE summarise all analyses performed for NSW sea garfish stock assessment
 
@@ -47,4 +47,7 @@ Rscript Model2ConfidenceInterval.R
 #Rscript Model3-ProfileLikelihoodOfAlpha.R
 #Rscript Model3-ProfileLikelihoodOfBeta.R
 #Rscript Model3-ProfileLikelihoodOfGamma.R
+
+# Bayesian approach
+Rscript BayesianApproach_FitModels.R
 
