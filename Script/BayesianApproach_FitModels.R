@@ -41,7 +41,7 @@ setUp2 <- createBayesianSetup(new.ll.model2, lower = lower.bound, upper = upper.
 settings = list(iterations = 25000,  message = FALSE)
 out2 <- runMCMC(bayesianSetup = setUp2, sampler = "Metropolis", settings = settings)
 
-png("Results/Graphics/Bayesian_Trace_model2.png")
+png("Results/Graphics/Bayesian_Trace_model2.png", height = 1000, width = 1000)
 tracePlot(out2, start = 1)
 dev.off()
 
