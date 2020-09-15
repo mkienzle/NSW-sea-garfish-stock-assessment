@@ -8,7 +8,7 @@ The parameter of the best model, model 2, are estimated using Monte Carlo Markov
 
 The traces of the MCMC show that the MCMC converged very quickly
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png) <!-- .element height="200%" width="200%" -->
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png)
 
 The output of the MCMC looks like this:
 
@@ -78,3 +78,7 @@ The estimated trend in Spawning Stock Biomass looks like
 And the estimate distribution of Spawning Stock Biomass in 2018/19 is much larger than SSB at MSY (62 tonnes): the probability that the stock is over-fished (SSB < SSBmsy) is 0
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_SSB_distribution_in_2018-19.png)
+
+The trajectory of the stock along fishing effort (x-axis) and estimated Spawning Stock Biomass (y-axis) is shown on the Kobe plot below. At the beginning of the time series, in 2004/05, he stock received more fishing effort than sustainable (Emsy = 700 boat-days, vertical line): over-fishing was occuring on a stock already over-fished (SSB below SSBmsy). As fishing effort decreased and larger mesh size were introduce, over-fishing ceased and the stock recovered and ceased to be over-fished. In 2018/19 the NSW sea garfish fishery is not over-fished nor over-fishing is occuring.
+
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Kobe_plot.png)
