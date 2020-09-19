@@ -1,5 +1,5 @@
 # CREATED   25 Jun 2020
-# MODIFIED   5 Aug 2020
+# MODIFIED  19 Sep 2020
 
 # PURPOSE stock projections with various level of fishing, to determine MSY
 
@@ -125,25 +125,27 @@ if(i >= n.agegroups){
 }
 }
 
-return(list(final.catch.kg = sum(Coaa2Caaa(biomass.caught.at.cohort.x.age)[180, 1:6]), final.SSB.kg= sum(Coaa2Caaa(pop.SSB.at.cohort.x.age)[180,1:6]) ))
+return(list(final.catch.kg = sum(Coaa2Caaa(biomass.caught.at.cohort.x.age)[180, 1:6]), final.biomass.kg = sum(Coaa2Caaa(pop.biomass.at.cohort.x.age)[180,1:6]), final.SSB.kg= sum(Coaa2Caaa(pop.SSB.at.cohort.x.age)[180,1:6]) ))
 } # End of projection function
 
 #### Project the stock with varying fishing effort
 
 effort = c(1e-4, seq(50,2e3,50))
 
-res = data.frame(Effort = rep(effort, each = 500), Catch = NA, SSB = NA)
+res = data.frame(Effort = rep(effort, each = 500), Catch = NA, Biomass = NA, SSB = NA)
 
 for(j in 1:nrow(res)){
   
   my.res = Projection(fishing.effort = res$Effort[j])
   res[j,"Catch"] = my.res$final.catch.kg
+  res[j,"Biomass"] = my.res$final.biomass.kg
   res[j, "SSB"] = my.res$final.SSB.kg
   
   cat(paste("Of", nrow(res), "iterations, completeted", j, "\r"))
 }
 
 save(res, file = paste("Results/Data/Model2-MSYcomputations-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".RData", sep=""))
+#load(file = "Results/Data/Model2-MSYcomputations-Aug052020-19-22-46.RData")
 
 png(file = paste("Results/Graphics/Model2-MSYcomputations-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
 #with(res, boxplot(1e-3 * Catch ~ as.factor(round(Effort,1)), xlab = "Effort (boat-days)", ylab = "Catch (tonnes)", las = 1))
@@ -165,5 +167,17 @@ axis(2, las = 1);
 box();
 abline(h=62, col = "blue", lty = 2);
 abline(v = 15, col = "blue", lty = 2);
+
+dev.off()
+
+## Plot stock biomass against effort
+png(file = paste("Results/Graphics/Model2-MSYcomputations-Biomass-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
+with(res, boxplot(1e-3 * Biomass ~ as.factor(round(Effort,0)), axes = FALSE, xlab = "Effort (boat-days)",
+	  ylab = "Stock Biomass (tonnes)", las = 1));
+axis(1, at = seq(1, 50,2), label = round(sort(unique(res$Effort))[seq(1,50,2)]),1);
+axis(2, las = 1);
+box();
+abline(h=235, col = "blue", lty = 2);
+abline(v = 1, col = "blue", lty = 2);
 
 dev.off()

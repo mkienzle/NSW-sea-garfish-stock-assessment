@@ -218,6 +218,7 @@ y <- rec$EstRec[-1][range]
 
 dataset <- data.frame( Year = rec$Year[-1][range], y = log(y/x), x = x)
 lm1 <- lm(y ~ x, dataset)
+save(lm1, file = "Results/Models/Linear-RickerSRR.RData")
 
 # on the transformed scale
 png(file = "Results/Graphics/LinearizedRickerSRR.png")

@@ -68,3 +68,7 @@ The simulation study that projected this stock into the future using constant le
 The average spawning stock biomass (SSB) at the level of effort, SSB at MSY, is 62 tonnes.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Model2-MSYcomputations-SSB-Plot-Sep122020-07-46-50.png)
+
+The average stock biomass when fishing mortality is zero is 235 tonnes (according to model 2):
+
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Model2-MSYcomputations-Biomass-Plot-Sep192020-08-01-34.png)
