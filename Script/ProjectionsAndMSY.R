@@ -147,7 +147,8 @@ for(j in 1:nrow(res)){
 save(res, file = paste("Results/Data/Model2-MSYcomputations-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".RData", sep=""))
 #load(file = "Results/Data/Model2-MSYcomputations-Aug052020-19-22-46.RData")
 
-png(file = paste("Results/Graphics/Model2-MSYcomputations-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
+pdf(file = paste("Results/Graphics/Model2-MSYcomputations-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".pdf", sep=""))
+#png(file = paste("Results/Graphics/Model2-MSYcomputations-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
 #with(res, boxplot(1e-3 * Catch ~ as.factor(round(Effort,1)), xlab = "Effort (boat-days)", ylab = "Catch (tonnes)", las = 1))
 with(res, boxplot(1e-3 * Catch ~ as.factor(round(Effort,0)), axes = FALSE, xlab = "Effort (boat-days)",
 	  ylab = "Catch (tonnes)", las = 1));
@@ -159,7 +160,8 @@ abline(v = 15, col = "blue", lty = 2);
 
 dev.off()
 
-png(file = paste("Results/Graphics/Model2-MSYcomputations-SSB-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
+pdf(file = paste("Results/Graphics/Model2-MSYcomputations-SSB-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".pdf", sep=""))
+#png(file = paste("Results/Graphics/Model2-MSYcomputations-SSB-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
 with(res, boxplot(1e-3 * SSB ~ as.factor(round(Effort,0)), axes = FALSE, xlab = "Effort (boat-days)",
 	  ylab = "Spawning Stock Biomass (tonnes)", las = 1));
 axis(1, at = seq(1, 50,2), label = round(sort(unique(res$Effort))[seq(1,50,2)]),1);
@@ -171,7 +173,8 @@ abline(v = 15, col = "blue", lty = 2);
 dev.off()
 
 ## Plot stock biomass against effort
-png(file = paste("Results/Graphics/Model2-MSYcomputations-Biomass-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
+pdf(file = paste("Results/Graphics/Model2-MSYcomputations-Biomass-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".pdf", sep=""))
+#png(file = paste("Results/Graphics/Model2-MSYcomputations-Biomass-Plot-", format(Sys.time(), "%b%d%Y-%H-%M-%S"), ".png", sep=""))
 with(res, boxplot(1e-3 * Biomass ~ as.factor(round(Effort,0)), axes = FALSE, xlab = "Effort (boat-days)",
 	  ylab = "Stock Biomass (tonnes)", las = 1));
 axis(1, at = seq(1, 50,2), label = round(sort(unique(res$Effort))[seq(1,50,2)]),1);

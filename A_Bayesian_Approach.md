@@ -22,7 +22,7 @@ The output of the MCMC looks like this:
 |5    | 1.723482 | 0.6332424 | 0.08708028 | 0.03938038 | -5104.685 | -5101.302 | -3.382696 |
 |6    | 1.723482 | 0.6332424 | 0.08708028 | 0.03938038 | -5104.685 | -5101.302 | -3.382696 |
 
-The posterior distributions of the parameters are unimodal and symetric. They were compared to Guaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
+The posterior distributions of the parameters are uni-modal and symmetric. They were compared to Gaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)
 
@@ -79,6 +79,6 @@ And the estimate distribution of Spawning Stock Biomass in 2018/19 is much large
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_SSB_distribution_in_2018-19.png)
 
-The trajectory of the stock along fishing effort (x-axis) and estimated Spawning Stock Biomass (y-axis) is shown on the Kobe plot below. At the beginning of the time series, in 2004/05, he stock received more fishing effort than sustainable (Emsy = 700 boat-days, vertical line): over-fishing was occuring on a stock already over-fished (SSB below SSBmsy). As fishing effort decreased and larger mesh size were introduce, over-fishing ceased and the stock recovered and ceased to be over-fished. In 2018/19 the NSW sea garfish fishery is not over-fished nor over-fishing is occuring.
+The trajectory of the stock along fishing effort (x-axis) and estimated Spawning Stock Biomass (y-axis) is shown on the Kobe plot below. At the beginning of the time series, in 2004/05, the stock received more fishing effort than sustainable (Emsy = 700 boat-days, vertical line): over-fishing was occurring on a stock already over-fished (SSB below SSBmsy indicated by the horizontal line). As fishing effort decreased and larger mesh size were introduced, over-fishing ceased and the stock recovered and ceased to be over-fished. In 2018/19 the NSW sea garfish fishery is not over-fished nor over-fishing is occurring.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Kobe_plot.png)

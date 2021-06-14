@@ -19,7 +19,7 @@ n.year <- nrow(nb.at.age.tmp)
 n.cohort <- nrow(nb.at.age.tmp) + ncol(nb.at.age.tmp) - 1
 n.par <- length(result2$par) # Number of parameters in the best model
 
-burnIn = 5000
+burnIn = 11000
 
 # Create a data.frame to hold the resample results
 #n.resample <- 1e4
@@ -107,19 +107,47 @@ p1 = ggplot(data = biomass.data, aes(x = year, y = value)) +
     stat_summary(geom = "ribbon", fun.data = mean_cl_quantile, alpha = 0.1, lty = 3) +
     xlab("") + ylab("Biomass (t)") + scale_x_continuous(name = "", breaks = uniq.year[seq(1, length(uniq.year), length = 5)], labels = uniq.f.year[seq(1, length(uniq.f.year), length = 5)]) + theme_light()
 
-ggsave(filename = "Results/Graphics/Bayesian_BiomassTrend.png", plot = p1, device = "png")
+ggsave(filename = "Results/Graphics/Bayesian_BiomassTrend.pdf", plot = p1, device = "pdf")
 
  p2 = ggplot(data = SSB.data, aes(x = year, y = value)) + 
     stat_summary(geom = "line", fun.y = median, col = "black", size = 1.2) +
     stat_summary(geom = "ribbon", fun.data = mean_cl_quantile, alpha = 0.1, lty = 3) +
     xlab("") + ylab("Spawning Stock Biomass (t)") + scale_x_continuous(name = "", breaks = uniq.year[seq(1, length(uniq.year), length = 5)], labels = uniq.f.year[seq(1, length(uniq.f.year), length = 5)]) + theme_light()
 
-ggsave(filename = "Results/Graphics/Bayesian_SSBTrend.png", plot = p2, device = "png")
+ggsave(filename = "Results/Graphics/Bayesian_SSBTrend.pdf", plot = p2, device = "pdf")
 
 # Plot the estimated SSB distribution in the most recent years
 
 
-png(file = "Results/Graphics/Bayesian_SSB_distribution_in_2018-19.png")
+pdf(file = "Results/Graphics/Bayesian_SSB_distribution_in_2018-19.pdf")
 hist(resample.results$SSB15, xlim = c(50,200), xlab = "SSB (tonnes)", main = "MCMC distribution of SSB in 2018/19")
 abline(v=62, lty = 3, col = "red")
+dev.off()
+
+pdf(file = "Results/Graphics/Bayesian_SSB_distribution_in_2004-05.pdf")
+hist(resample.results$SSB1, xlim = c(0,100), xlab = "SSB (tonnes)", main = "MCMC distribution of SSB in 2004/05")
+abline(v=62, lty = 3, col = "red")
+dev.off()
+
+
+# Kobe plot
+
+pdf(file = "Results/Graphics/Bayesian_Kobe_plot.pdf")
+
+plot(effort[,1], with(SSB.data, tapply(value, year, median)), pch = 19, xlab = "Effort (boat-days)", ylab = "SSB (tonnes)", xlim = c(0,1000), ylim = c(0,200), las = 1)
+segments(effort[,1], with(SSB.data, tapply(value, year, quantile, 0,025)), effort[,2], with(SSB.data, tapply(value, year, quantile, 0.975)))
+abline(v = 700, lty = 1); abline(h = 62, lty = 1)
+
+
+text(effort[1,1] + 60, with(SSB.data, tapply(value, year, median))[1] + 10, dimnames(catch)[[1]][1])
+text(effort[5,1] +  0, with(SSB.data, tapply(value, year, median))[5] - 15, dimnames(catch)[[1]][5])
+text(effort[15,1] - 100, with(SSB.data, tapply(value, year, median))[15] -  0, dimnames(catch)[[1]][15])
+
+x0 = effort[-length(effort[,1]), 1]
+x1 = effort[-1,1]
+
+y0 = with(SSB.data, tapply(value, year, median))[-length(effort[,1])]
+y1 = with(SSB.data, tapply(value, year, median))[-1]
+
+arrows(x0, y0, x1, y1, length = 0.15, lty = 3)
 dev.off()

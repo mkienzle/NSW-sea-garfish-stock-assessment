@@ -7,7 +7,8 @@ catch <- read.csv("../Data/GarfishCatchData.csv")
 effort <- read.csv("../Data/GarfishEffortData.csv")
 
 #postscript("Results/Graphics/CatchAndEffortVariations.ps")
-png("Results/Graphics/CatchAndEffortVariations.png", width = 800, height = 480)
+pdf("Results/Graphics/CatchAndEffortVariations.pdf", width = 14, height = 7)
+#png("Results/Graphics/CatchAndEffortVariations.png", width = 800, height = 480)
 #par(fg = "black", col.main = "black", col.axis = "black", col.lab = "black", cex = 1.5, cex.lab = 2, cex.axis = 1.5, cex.main = 2.5, mai = c(1.2, 1.8, 1.02, 1.5), mgp = c(4, 1, 0))
 
 

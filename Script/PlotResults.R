@@ -23,8 +23,8 @@ year.seq <- as.numeric(substr(dimnames(nb.at.age.tmp)[[1]],1,4))
 
 ### Recruitment estimates (plot recruitment + uncertainty generates using a profile likelihood approach -- see CalculateRecruitmentUncertainty.R)
 
-#pdf("Results/Graphics/EstimateOfRecruitment.pdf")
-png("Results/Graphics/EstimateOfRecruitment.png")
+pdf("Results/Graphics/EstimateOfRecruitment.pdf")
+#png("Results/Graphics/EstimateOfRecruitment.png")
 #postscript("Results/Graphics/EstimateOfRecruitment.ps")
 par(cex.lab = 1.8, cex.main = 2, mai = c(1.02, 1.2, 0.82, 0.42), cex.axis = 1.4) # For presentation
 #par(cex.lab = 1.8, cex.main = 2) # For presentation
@@ -57,8 +57,8 @@ write.csv(df, file = "../Data/NSW-Garfish-RecEstimates.csv")
 boxplot(resample.results.x[, 12:23], names = 2004:2015, las = 1, main = "Recruitment estimate variability")
 
 # Compare recruitment estimates with previous year's estimate
-#pdf("Results/Graphics/EstimateOfRecruitment.pdf")
-png("Results/Graphics/CompareVariousRecruitmentEstimates.png")
+pdf("Results/Graphics/EstimateOfRecruitment.pdf")
+#png("Results/Graphics/CompareVariousRecruitmentEstimates.png")
 #postscript("Results/Graphics/CompareVariousRecruitmentEstimates.ps")
 indices <- seq(ncol(nb.at.age.tmp), ncol(nb.at.age.tmp) + nrow(nb.at.age.tmp) - 1)
 plot(year.seq, est.rec[indices], type = "n", xlab = "", ylab = "", main = "Recruitment estimates", ylim = c(0, 1.2e7), axes = FALSE)
@@ -98,8 +98,8 @@ M <- result2$par[2]
 #N.at.age <- catch.at.age / mu
 N.at.age <- catch.at.age / F
 
-#pdf("Results/Graphics/EstimateOfBiomass.pdf")
-png("Results/Graphics/EstimateOfBiomass.png")
+pdf("Results/Graphics/EstimateOfBiomass.pdf")
+#png("Results/Graphics/EstimateOfBiomass.png")
 #postscript("Results/Graphics/EstimateOfBiomass.ps")
 par(cex.lab = 1.8, cex.main = 2, mai = c(1.02, 1.0, 0.82, 0.42), cex.axis = 1.4) # For presentation
 #print(par()$mai)
@@ -139,8 +139,8 @@ write.csv(df2, file = "../Data/NSW-Garfish-SSBEstimates.csv")
 
 
 # Compare with previous years results
-#pdf("Results/Graphics/EstimateOfBiomass.pdf")
-png("Results/Graphics/CompareVariousBiomassEstimates.png")
+pdf("Results/Graphics/EstimateOfBiomass.pdf")
+#png("Results/Graphics/CompareVariousBiomassEstimates.png")
 
 plot(year.seq,  rowSums(N.at.age * weight.at.age * 1e-3),
 type = "n", axes = FALSE, xlab = "", ylab = "Biomass (tonnes)", main = "", ylim = c(0, 550))
@@ -166,8 +166,8 @@ dev.off()
 
 
 ### Plot trends in estimated fishery and natural mortality rates from model 2
-#pdf(file = "Results/Graphics/Mod2-MortalityEstimates.pdf")
-png(file = "Results/Graphics/Mod2-MortalityEstimates.png")
+pdf(file = "Results/Graphics/Mod2-MortalityEstimates.pdf")
+#png(file = "Results/Graphics/Mod2-MortalityEstimates.png")
 #postscript("Results/Graphics/Mod2-MortalityEstimates.ps")
 plot( seq(1, nrow(nb.at.age.wgt)), result2$par[1] * csf * (effort * s.at.age.model2)[,2], pch = 19, type = "b",
       axes = FALSE, xlab = "", ylab = "mortality rates (1/year)", ylim = c(0,2.0))
@@ -234,7 +234,8 @@ lines(x.seq, pred[,2], lty = 2)
 dev.off()
 
 # on the natural scale
-png(file = "Results/Graphics/RickerSRROnNaturalScale.png")
+pdf(file = "Results/Graphics/RickerSRROnNaturalScale.pdf")
+#png(file = "Results/Graphics/RickerSRROnNaturalScale.png")
 plot(ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$EstRec[-1][range], xlab = "Spawning Stock Biomass", ylab = "Number of recruits (in millions)", pch = 19, ylim = c(0,12), xlim = c(0,200), las = 1)
 segments(ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$X95CI.LowBound[-1][range],
 ssb$EstSSB[-nrow(ssb)][range], 1e-6 * rec$X95CI.HighBound[-1][range])
