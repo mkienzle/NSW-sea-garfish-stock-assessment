@@ -1,5 +1,5 @@
 # CREATED  13 Dec 2016
-# MODIFIED 12 Sep 2020
+# MODIFIED 26 Jun 2021
 
 # PURPOSE compute recruitment and biomass distribution using Bayesian samples 
 
@@ -19,25 +19,30 @@ n.year <- nrow(nb.at.age.tmp)
 n.cohort <- nrow(nb.at.age.tmp) + ncol(nb.at.age.tmp) - 1
 n.par <- length(result2$par) # Number of parameters in the best model
 
-burnIn = 11000
+burnIn = 20000
 
 # Create a data.frame to hold the resample results
 #n.resample <- 1e4
 
-resample.results <- as.data.frame(matrix(nrow = nrow(out2$chain[-(1:burnIn),]), ncol = n.par + 1 + n.cohort + n.year + n.year))
+mcmc.samples = rbind(out2[[1]]$chain[-BurnIn, ],
+                                    out2[[2]]$chain[-BurnIn, ],
+                                    out2[[3]]$chain[-BurnIn, ],
+                                    out2[[4]]$chain[-BurnIn, ])
+                    
+resample.results <- as.data.frame(matrix(nrow = nrow(mcmc.samples), ncol = n.par + 1 + n.cohort + n.year + n.year))
 dimnames(resample.results)[[2]] <- c(paste("par", 1:n.par, sep=""), "log.lik", paste("rec", 1:n.cohort, sep = ""),
 				     paste("Biomass", 1:n.year, sep = ""),
 				     paste("SSB", 1:n.year, sep = ""))
 
-resample.results[, c("par1", "par2", "par3", "par4", "log.lik")] = out2$chain[(burnIn+1):nrow(out2$chain), c("1", "2", "3", "4", "LL")]
+resample.results[, c("par1", "par2", "par3", "par4", "log.lik")] = mcmc.samples[, c("1", "2", "3", "4", "LL")]
 
 # Fix number of define the range of values, in unit of sd, to look around the mean of each parameters
 n.sigma <- 2
 
 #for(resample in 1:n.resample){
 for(resample in 1:nrow(resample.results)){
-print(paste(resample,"/", nrow(resample.results),sep=""))
-
+#print(paste(resample,"/", nrow(resample.results),sep=""))
+  cat(resample, "of ", nrow(mcmc.samples), "\r")
 # Create a set of random parameters
 rand.par = t(resample.results[resample, c("par1","par2","par3", "par4")])[,1]
 
@@ -87,11 +92,16 @@ write.csv(resample.results, file = "Results/Data/Bayesian_Model2QuantityEstimate
 library(tidyverse)
 head(resample.results[, grep("Biomass", names(resample.results))])
 
-biomass.data = resample.results[, grep("Biomass", names(resample.results))] %>% gather() %>% mutate(year = as.numeric(str_sub(key, 8, 15)) + 2004, f.year = paste(year-1,"/",year,sep="") )
+biomass.data = resample.results[, grep("Biomass", names(resample.results))] %>% gather() %>% 
+  mutate(year = as.numeric(str_sub(key, 8, 15)) + 2004, f.year = paste(year-1,"/",year,sep="") )
 
-SSB.data = resample.results[, grep("SSB", names(resample.results))] %>% gather() %>% mutate(year = as.numeric(str_sub(key, 4, 8)) + 2004, f.year = paste(year-1,"/",year,sep="") )
+SSB.data = resample.results[, grep("SSB", names(resample.results))] %>% gather() %>% 
+  mutate(year = as.numeric(str_sub(key, 4, 8)) + 2004, f.year = paste(year-1,"/",year,sep="") )
 
- # A function to calculate the quantiles of the distribution
+rec.data = resample.results[, grep(paste("rec",seq(dim(nb.at.age.tmp)[2], n.cohort), sep = "", collapse="|"), names(resample.results))] %>% 
+  gather() %>% mutate(year = as.numeric(str_sub(key, 4, 8)) + 1999, f.year = paste(year-1,"/",year,sep="") )
+
+# A function to calculate the quantiles of the distribution
   mean_cl_quantile <- function(x, q = c(0.025, 0.975), na.rm = TRUE){
     dat <- data.frame(y = mean(x, na.rm = na.rm),
                       ymin = quantile(x, probs = q[1], na.rm = na.rm),
@@ -103,21 +113,30 @@ uniq.year = sort(unique(biomass.data$year))
 uniq.f.year = sort(unique(biomass.data$f.year))
 
 p1 = ggplot(data = biomass.data, aes(x = year, y = value)) + 
-    stat_summary(geom = "line", fun.y = median, col = "black", size = 1.2) +
+    stat_summary(geom = "line", fun = median, col = "black", size = 1.2) +
     stat_summary(geom = "ribbon", fun.data = mean_cl_quantile, alpha = 0.1, lty = 3) +
     xlab("") + ylab("Biomass (t)") + scale_x_continuous(name = "", breaks = uniq.year[seq(1, length(uniq.year), length = 5)], labels = uniq.f.year[seq(1, length(uniq.f.year), length = 5)]) + theme_light()
 
 ggsave(filename = "Results/Graphics/Bayesian_BiomassTrend.pdf", plot = p1, device = "pdf")
+ggsave(filename = "Results/Graphics/Bayesian_BiomassTrend.png", plot = p1, device = "png")
 
  p2 = ggplot(data = SSB.data, aes(x = year, y = value)) + 
-    stat_summary(geom = "line", fun.y = median, col = "black", size = 1.2) +
+    stat_summary(geom = "line", fun = median, col = "black", size = 1.2) +
     stat_summary(geom = "ribbon", fun.data = mean_cl_quantile, alpha = 0.1, lty = 3) +
     xlab("") + ylab("Spawning Stock Biomass (t)") + scale_x_continuous(name = "", breaks = uniq.year[seq(1, length(uniq.year), length = 5)], labels = uniq.f.year[seq(1, length(uniq.f.year), length = 5)]) + theme_light()
 
 ggsave(filename = "Results/Graphics/Bayesian_SSBTrend.pdf", plot = p2, device = "pdf")
+ggsave(filename = "Results/Graphics/Bayesian_SSBTrend.png", plot = p2, device = "png")
+
+p3 = ggplot(data = rec.data, aes(x = year, y = value * 1e-6)) + 
+  stat_summary(geom = "line", fun = median, col = "black", size = 1.2) +
+  stat_summary(geom = "ribbon", fun.data = mean_cl_quantile, alpha = 0.1, lty = 3) +
+  xlab("") + ylab("Recruitment (millions)") + scale_x_continuous(name = "", breaks = uniq.year[seq(1, length(uniq.year), length = 5)], labels = uniq.f.year[seq(1, length(uniq.f.year), length = 5)]) + theme_light()
+
+ggsave(filename = "Results/Graphics/Bayesian_RecruitmentTrend.pdf", plot = p3, device = "pdf")
+ggsave(filename = "Results/Graphics/Bayesian_RecruitmentTrend.png", plot = p3, device = "png")
 
 # Plot the estimated SSB distribution in the most recent years
-
 
 pdf(file = "Results/Graphics/Bayesian_SSB_distribution_in_2018-19.pdf")
 hist(resample.results$SSB15, xlim = c(50,200), xlab = "SSB (tonnes)", main = "MCMC distribution of SSB in 2018/19")

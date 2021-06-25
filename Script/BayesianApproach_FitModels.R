@@ -57,11 +57,13 @@ settings = list(iterations = 25000,  message = FALSE, nrChains=4)
 out2 <- runMCMC(bayesianSetup = setUp2, sampler = "Metropolis", settings = settings)
 WAIC(out2)
 
+#png("Results/Graphics/Bayesian_Trace_model2.png")
 pdf("Results/Graphics/Bayesian_Trace_model2.pdf", width = 7, height = 10)
 tracePlot(out2, start = 1, thin = FALSE)
 dev.off()
 
 save(out2, file = "Results/Models/Bayesian_model2.RData")
+load(file = "Results/Models/Bayesian_model2.RData")
 
 # compare errors with those estimated using likelihood fit
 BurnIn = seq(1, 20e3)
@@ -82,6 +84,7 @@ dev.off()
 
 # Are the posterior distribution of the parameters Gaussian?
 pdf("Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.pdf")
+#png("Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png")
 par(mfrow = c(2,2), mai = c(0.8, 0.7, 0.8, 0.35));
 
 for(i in 1:4) {
