@@ -2,11 +2,11 @@
 
 ## Method
 
-The parameter of the best model, model 2, are estimated using Monte Carlo Markov Chain (MCMC) using the R package BayesianTools.
+The parameter of the best model, model 2, are estimated with 4 Monte Carlo Markov Chains (MCMC) using the R package BayesianTools.
 
 ## Results
 
-The traces of the MCMC show that the MCMC converged very quickly
+The traces of the MCMC show that the MCMC converged after about 20,000 iterations.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png)
 
@@ -22,11 +22,15 @@ The output of the MCMC looks like this:
 |5    | 1.723482 | 0.6332424 | 0.08708028 | 0.03938038 | -5104.685 | -5101.302 | -3.382696 |
 |6    | 1.723482 | 0.6332424 | 0.08708028 | 0.03938038 | -5104.685 | -5101.302 | -3.382696 |
 
-The posterior distributions of the parameters are uni-modal and symmetric. They were compared to Gaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
+The posterior distributions of the parameters are uni-modal and symmetric. There is a strong negative correlation between fishing mortality (catchability, par1) and natural mortality (par2)
+
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png)
+
+They were compared to Gaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)
 
-Those samples from the posterior distribution were used to calculate the distribution of the stock biomass and spawning stock biomass. Those data look like
+Samples from the posterior distribution were used to calculate the distribution of the stock biomass and spawning stock biomass. Those data look like
 
 
 |     |      par1  |    par2   |     par3   |    par4    |  log.lik   | rec1   | rec2 | rec3  |   rec4   |
@@ -68,6 +72,9 @@ Those samples from the posterior distribution were used to calculate the distrib
 | 4   | 189.6608  | 172.8766   | 167.0109   | 224.2023  | 283.3116  | 27.85006  | 25.72940 | 21.1083 |
 | 5   | 189.6608  | 172.8766   | 167.0109   | 224.2023  | 283.3116  | 27.85006  | 25.72940 | 21.1083 |
 | 6   | 189.6608  | 172.8766   | 167.0109   | 224.2023  | 283.3116  | 27.85006  | 25.72940 | 21.1083 |
+
+The estimated trend in recruitment looks like (same as estimate with maximum likelihood)
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_RecruitmentTrend.png)
 
 The estimated trend in biomass looks like (same as estimate with maximum likelihood)
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_BiomassTrend.png)
