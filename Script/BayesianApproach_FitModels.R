@@ -107,6 +107,7 @@ dev.off()
 
 # Plot correlation between variables
 pdf("Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.pdf")
+#png("Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png")
 library(psych)
 pairs.panels(rbind(out2[[1]]$chain[-BurnIn, 1:4],
                    out2[[2]]$chain[-BurnIn, 1:4],
