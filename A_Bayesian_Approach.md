@@ -26,7 +26,7 @@ The posterior distributions of the parameters are uni-modal and symmetric. There
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png)
 
-They were compared to Gaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
+The posterior distributions of the parameters of model 2 were compared to Gaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)
 
