@@ -57,7 +57,7 @@ settings = list(iterations = 25000,  message = FALSE, nrChains=4)
 out2 <- runMCMC(bayesianSetup = setUp2, sampler = "Metropolis", settings = settings)
 WAIC(out2)
 
-#png("Results/Graphics/Bayesian_Trace_model2.png")
+#png("Results/Graphics/Bayesian_Trace_model2.png", width = 960, height = 1200)
 pdf("Results/Graphics/Bayesian_Trace_model2.pdf", width = 7, height = 10)
 tracePlot(out2, start = 1, thin = FALSE)
 dev.off()
