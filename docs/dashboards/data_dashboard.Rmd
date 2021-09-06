@@ -30,7 +30,7 @@ Row
 ### Catch timeseries
 
 ```{r}
-catch <- read.csv("Data/GarfishCatchData.csv")
+catch <- read.csv("../../Data/GarfishCatchData.csv")
 
 p <- ggplot(catch, aes(x=Year, y=Catch.in.kg * 1e-3)) +
             geom_bar(stat="identity") + xlab("") + ylab("Catch (t)") + 
