@@ -6,9 +6,7 @@ This repository provides data, methods, scripts and results used to estimate the
 
 ## Data
 
-The data consist of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
-
-[data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html)
+The [data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html) shows the four types of data used to produce this stock assessment. They consist of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
 
 Catches in this fishery have been relatively stable, in average 43 +- 18 tonnes. Catches in 2009/10 were reported to be 100 tonnes, an un-usually large figure in the time series of data. Fishing effort declined sharply since 2004/05, and have been stable since 2015/16 at around 150 boat-days. Catch per unit effort (CPUE), right-hand panel, were approx. 50 kg/boat-day at the beginning of the time series when effort was very large. After the sharp decline in effort, CPUE fluctuated around 200 kg/boat-day without showing any trend.
 
