@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>The_drifting_M_issue</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>Over the years, we noticed that estimates of natural mortality (M) increased. Somewhat cynically we assumed this was partly related to a revised empirical method by Amy Then that produced higher estimates of M and so a corresponding lower estimate of F: suddenly stock assessments were more optimistic and everyone’s happy (avoiding difficult conversations that scientists, managers and industry have to have when a resource is over-exploited). Evidence of the “drifting M issue” can be found in the series of estimates we published over the year, where M was estimated from 0.52 <span class="math inline">\(\pm\)</span> 0.06 per year (<a href="https://doi.org/10.1016/j.fishres.2017.10.016">Broadhurst et al., 2018</a>) to 0.64 <span class="math inline">\(\pm\)</span> 0.04 (<a href="https://doi.org/10.1016/j.fishres.2021.106066">Kienzle et al., 2021</a>).</p>
+<p>We are concerned that this issue arise as an artefact of modelling the dynamic of the fishery using model that do not allow for variation in catchability. We suggest that increasing estimates of M are likely caused by increasing catchability over the years because (a) there are ample evidence of changes in catchability reported in the literature, and (b) variation of fishing power and availability are commonly used in stock assessments.</p>
+<p>There has been no data collected in this fishery that documents, or suggest, any variation in fishing power. We caution the reader that, hence, the <strong>modelling presented below is highly speculative</strong>. Yet, we think that given the widely documented phenomena that (a) fishing power increases catchability over time and (b) increasing abundance increase catchability. Therefore accounting for this process would be useful. And deriving its effects on quantities relevant to fisheries managers important when management decision will be made.</p>
+</div>
+<div id="method" class="section level2">
+<h2>Method</h2>
+<p>We modelled time-series of increases of catchability over time using a random walk, where catchability is set to 1 in first year of the time-series (2004/05) and then increased it randomly according to the absolute value of a Gaussian distribution with mean equal to 0 and standard deviation equal to <span class="math inline">\(\sigma\)</span> (<span class="math inline">\(N(0, \sigma)\)</span>) allowing catchability to increase from year to year (note that no decrease is allowed using this approach).</p>
+<p><strong>Anchoring the model to <span class="math inline">\(M=0.52 \pm 0.06\)</span></strong>: using a range of <span class="math inline">\(\sigma\)</span> (0, 0.02, 0.04, 0.06, 0.08 and 1) we generated a thousand hypothetical time-series of increase in catchability for each value of <span class="math inline">\(\sigma\)</span>; fitted the best model to the data by maximum likelihood; and derived (1) a distribution of estimates of M and (2) a distribution of values of the negative log-likelihood. Using estimates of M, we assessed which value of <span class="math inline">\(\sigma\)</span> provided the most overlapping distribution of M with <span class="math inline">\(M=0.52 \pm 0.06\)</span>. Using negative log-likelihood values, we assessed how frequently a model allowing for increasing catchability fitted the data better. Finally, using a thousand random walks with parameter <span class="math inline">\(\sigma=0.06\)</span> to represent increasing catchability over time, we evaluated the effect it has on quantities useful for the management of this fishery.</p>
+<p>The distributions of M are shown below <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Distribution_of_M_for_model_with_increasing_catchability_Simulation_For_various_sigmas.png" alt="alt text" /></p>
+<p>The distributions of the negative of the log-likelihood are shown below <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Distribution_of_logLikelihood_for_model_with_increasing_catchability_Simulation_For_various_sigmas.png" alt="alt text" /></p>
+<p>A comparison between simulations of various magnitude of random walk (<span class="math inline">\(\sigma\)</span>) and estimates of M used as reference (M=0.052 <span class="math inline">\(\pm\)</span> 0.06 from Broadhurst et al., 2018) suggests that assuming an increase of catchability of <span class="math inline">\(\sigma=0.06\)</span> leads to natural mortality estimates consistent with the reference. <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Distribution_of_M_for_model_with_increasing_catchability_Simulation_For_various_sigmas_ComparisonToBroadhurst2018.png" alt="alt text" /></p>
+<p>The effect of increasing catchability using a random walk with parameter (<span class="math inline">\(\sigma=0.06\)</span>) on fishing mortality estimates are shown below <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Effect_on_F_of_RandomWalkCatchability_sigmaI0.07.png" alt="alt text" /></p>
+</div>
+<div id="conclusiondiscussion" class="section level2">
+<h2>Conclusion/discussion</h2>
+<p>Given that there are little evidence of technological improvement in this fishery over the years, apart from attrition due to less efficient fishers leaving this increasingly competitive fishery, it might very well be that the alleged increase in catchability is due in large part to the increase abundance of the stock (a density dependent effect). Future work could try to disentangle factors that could explain an increase in catchability between (1) variations of fishing power; (2) variation of abundance; (3) …</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

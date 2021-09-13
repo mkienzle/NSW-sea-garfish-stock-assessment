@@ -75,4 +75,4 @@ The average stock biomass when fishing mortality is zero is 235 tonnes (accordin
 
 ## Discussion
 
-As of 2021, models seem to be affected by the [drifting M syndrome](The_drifting_M_issue.md).
+As of 2021, models seem to be affected by the [drifting M syndrome](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html).
