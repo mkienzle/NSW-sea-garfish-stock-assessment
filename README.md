@@ -14,11 +14,11 @@ Catches in this fishery have been relatively stable, in average 43 +- 18 tonnes.
 
 ## Methods
 
-Several models describing how mortality rates varied by age-group through time (depending on fishing effort, catchability and age-specific gear selectivity) were developed. All models assume a constant rate of mortality due to natural causes which was estimated. These mortality models have been expressed using hazard functions and converted into probabilities of dying at age from fishing using a method developed in the field of statistics called [survival analysis](https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). These age-specific probabilities of dying from fishing were combined with age data sampled from commercial catches into a likelihood function. A range of hypotheses regarding gear selectivity and natural mortality expressed into the mortality models were compared with Akaike Information Criteria (AIC). 
+Several models describing how mortality rates varied by age-group through time (depending on fishing effort, catchability and age-specific gear selectivity) were developed. All models assume a constant rate of mortality due to natural causes which was estimated. These mortality models have been expressed using hazard functions and converted into probabilities of dying at age from fishing using a method developed in the field of statistics called [survival analysis](https://link.springer.com/article/10.1007%2Fs13253-015-0237-y). These age-specific probabilities of dying from fishing were combined with age data sampled from commercial catches into a likelihood function. A range of hypotheses regarding gear selectivity and natural mortality expressed into the mortality models were compared using Akaike Information Criteria (AIC). 
 
 ### Mortality models for sea garfish
 
-So far, three mortality models have been estimated from the data. All models assume constant natural mortality; full selection by the gear for age group 1-2 years old and older.
+So far, three mortality models have been estimated from the data. All models assume constant natural mortality and full selection by the fishing gear of sea garfish age-group 1 (i.e. fish between 1 and 2 years of age) and older.
 
 - Model 1 estimates [selectivity of age-group 0-1 year old](Script/Results/Models/Mod1-GearSelectivity.csv) to have remained constant throughout the entire time series. 
 - Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11 as a result of a management decision to increase the minimum legal mesh size. 
@@ -72,3 +72,7 @@ The average spawning stock biomass (SSB) at the level of effort, SSB at MSY, is 
 The average stock biomass when fishing mortality is zero is 235 tonnes (according to model 2):
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Model2-MSYcomputations-Biomass-Plot-Sep192020-08-01-34.png)
+
+## Discussion
+
+As of 2021, models seem to be affected by the [drifting M syndrome](The_drifting_M_issue.md).
