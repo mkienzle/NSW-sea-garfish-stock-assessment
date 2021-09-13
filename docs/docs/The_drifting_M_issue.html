@@ -11,7 +11,7 @@
 
 
 
-<title>The_drifting_M_issue</title>
+<title>The_drifting_M_issue.knit</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -177,9 +177,11 @@ pre code {
 <h2>Method</h2>
 <p>We modelled time-series of increases of catchability over time using a random walk, where catchability is set to 1 in first year of the time-series (2004/05) and then increased it randomly according to the absolute value of a Gaussian distribution with mean equal to 0 and standard deviation equal to <span class="math inline">\(\sigma\)</span> (<span class="math inline">\(N(0, \sigma)\)</span>) allowing catchability to increase from year to year (note that no decrease is allowed using this approach).</p>
 <p><strong>Anchoring the model to <span class="math inline">\(M=0.52 \pm 0.06\)</span></strong>: using a range of <span class="math inline">\(\sigma\)</span> (0, 0.02, 0.04, 0.06, 0.08 and 1) we generated a thousand hypothetical time-series of increase in catchability for each value of <span class="math inline">\(\sigma\)</span>; fitted the best model to the data by maximum likelihood; and derived (1) a distribution of estimates of M and (2) a distribution of values of the negative log-likelihood. Using estimates of M, we assessed which value of <span class="math inline">\(\sigma\)</span> provided the most overlapping distribution of M with <span class="math inline">\(M=0.52 \pm 0.06\)</span>. Using negative log-likelihood values, we assessed how frequently a model allowing for increasing catchability fitted the data better. Finally, using a thousand random walks with parameter <span class="math inline">\(\sigma=0.06\)</span> to represent increasing catchability over time, we evaluated the effect it has on quantities useful for the management of this fishery.</p>
-<p>The distributions of M are shown below <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Distribution_of_M_for_model_with_increasing_catchability_Simulation_For_various_sigmas.png" alt="alt text" /></p>
-<p>The distributions of the negative of the log-likelihood are shown below <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Distribution_of_logLikelihood_for_model_with_increasing_catchability_Simulation_For_various_sigmas.png" alt="alt text" /></p>
-<p>A comparison between simulations of various magnitude of random walk (<span class="math inline">\(\sigma\)</span>) and estimates of M used as reference (M=0.052 <span class="math inline">\(\pm\)</span> 0.06 from Broadhurst et al., 2018) suggests that assuming an increase of catchability of <span class="math inline">\(\sigma=0.06\)</span> leads to natural mortality estimates consistent with the reference. <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Distribution_of_M_for_model_with_increasing_catchability_Simulation_For_various_sigmas_ComparisonToBroadhurst2018.png" alt="alt text" /></p>
+<p>The distributions of M are shown below</p>
+<p><img src="The_drifting_M_issue_files/figure-html/img1-1.png" width="672" /></p>
+<p>The distributions of the negative of the log-likelihood are shown below <img src="The_drifting_M_issue_files/figure-html/img2-1.png" width="672" /></p>
+<p>A comparison between simulations of various magnitude of random walk (<span class="math inline">\(\sigma\)</span>) and estimates of M used as reference (M=0.052 <span class="math inline">\(\pm\)</span> 0.06 from Broadhurst et al., 2018) suggests that assuming an increase of catchability of <span class="math inline">\(\sigma=0.06\)</span> leads to natural mortality estimates consistent with the reference.</p>
+<p><img src="The_drifting_M_issue_files/figure-html/img3-1.png" width="672" /></p>
 <p>The effect of increasing catchability using a random walk with parameter (<span class="math inline">\(\sigma=0.06\)</span>) on fishing mortality estimates are shown below <img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Effect_on_F_of_RandomWalkCatchability_sigmaI0.07.png" alt="alt text" /></p>
 </div>
 <div id="conclusiondiscussion" class="section level2">
