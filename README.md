@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository provides data, methods, scripts and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). This stock assessment was originally developed using a maximum likelihood approach ([Broadhurst et al., 2018](https://doi.org/10.1016/j.fishres.2017.10.016)) and later expanded with a Bayesian approach (([Kienzle et al., 2021](https://doi.org/10.1016/j.fishres.2021.106066))). Nowadays, the Bayesian approach is regarded as providing a more complete picture of the parameter estimates as well as quantities of interest to manage this fishery.
+This repository provides data, methods and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). This stock assessment was originally developed using a maximum likelihood approach ([Broadhurst et al., 2018](https://doi.org/10.1016/j.fishres.2017.10.016)) and later expanded with a Bayesian approach (([Kienzle et al., 2021](https://doi.org/10.1016/j.fishres.2021.106066))). Nowadays, the Bayesian approach is regarded as providing a more complete picture of the parameter estimates as well as quantities of interest to manage this fishery.
 
 ## Data
 
@@ -56,13 +56,13 @@ Fishing mortality rates have declined below natural mortality from 2009/10 onwar
 
 Sea garfish biomass estimates have been trending upward since 2008/09: they remained above 100 tonnes since 2009/10. Biomass increased in the last 3 years and stayed above 200 tonnes in the last 2 years.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfBiomass.png)
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_BiomassTrend.png)
 
 #### Recruitment estimates
 
 Recruitment was estimated to have varied between 1 and 5 millions fish each year until the most recent fishing season (2018/19) for which recruitment has been the largest estimated so far (approx. 7 millions fish). Such large estimate is the result of a combination of a large number of age-group 0-1 observed and the low probability of dying from fishing for that age-group in that year. This large estimate of recruitment relies on the observation of a single age-group of the youngest cohort in the fishery and will undoubtedly be revised by the observations of fish aged 1-2 year old in 2019/20. 2008/9 had the largest recruitment estimate prior to this year, presumably leading to the increase in biomass estimated in 2009/10. 2013/14 was estimated to be the fourth largest recruitment but did not translate into an increase in biomass in 2014/15. The most recent estimate of recruitment (2017/18) is the second largest and follows two very low recruitment in 2015/16 and 2016/17.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/EstimateOfRecruitment.png)
+![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_RecruitmentTrend.png)
 
 
 There start to be enough recruitment estimates (14) to begin looking at the relationship between stock and recruitment. We assumed that seagarfish age 1+ are sexually mature. The plot of recruitment estimates against spawning stock biomass (SSB) estimates, fitted with a Ricker stock-recruitment function, suggests that the Ricker model might provide useful information about the level of SSB that produces the largest amount of recruits.
