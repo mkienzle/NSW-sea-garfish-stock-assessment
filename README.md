@@ -26,7 +26,7 @@ So far, three mortality models have been estimated from the data. All models ass
 - Model 2 estimates [selectivity](Script/Results/Models/Mod2-GearSelectivity.csv) of age-group 0-1 year old to have change in 2010/11 as a result of a management decision to increase the minimum legal mesh size. 
 - Model 3 estimates selectivity in 1 block like model 1 and has natural mortality fixed at 0.7 per year according to estimates found in the scientific literature.
 
-[comment]: <> ([A Bayesian Approach to assess this stock](A_Bayesian_Approach.md))
+<!--- [A Bayesian Approach to assess this stock](A_Bayesian_Approach.md)) --->
 
 ### Maximum Sustainable Yield (MSY)
 
@@ -34,7 +34,7 @@ An estimate of MSY was obtained by simulating the exploitation of this stock, us
 
 ## Results
 
-Model 2 is most supported by the data according to [BIC](Script/Results/Data/Bayesian_ModelComparisonTable.csv). The traces of the MCMC show that the MCMC converged after about 20,000 iterations.
+Model 2 is most supported by the data according to [BIC](Script/Results/Data/Bayesian_ModelComparisonTable.csv). Four Monte Carlo Markov Chains (MCMCs) converged after about 20,000 iterations.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png)
 
@@ -42,7 +42,7 @@ The posterior distributions of the parameters of model 2 were compared to Gaussi
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)
 
-[comment]: <> ([This diagnostic plot](Script/Results/Graphics/NbAtAgeOverlayedWithModel.png) shows discrepancies between model 2 and age data. [Profiles](Script/Results/Graphics/Model2-ProfileLikelihood.png) of its negative log-likelihood function are smooth around the minimum for each parameter and allow to visualise parameter estimates uncertainties. The sections below describe the dynamics of this fishery based on this model 2 parameter estimates.)
+<!--- [This diagnostic plot](Script/Results/Graphics/NbAtAgeOverlayedWithModel.png) shows discrepancies between model 2 and age data. [Profiles](Script/Results/Graphics/Model2-ProfileLikelihood.png) of its negative log-likelihood function are smooth around the minimum for each parameter and allow to visualise parameter estimates uncertainties. The sections below describe the dynamics of this fishery based on this model 2 parameter estimates. --->
 
 ### Trends in populations quantities
 
@@ -60,7 +60,7 @@ Sea garfish biomass estimates have been trending upward since 2008/09: they rema
 
 #### Recruitment estimates
 
-Recruitment was estimated to have varied between 1 and 5 millions fish each year until the most recent fishing season (2018/19) for which recruitment has been the largest estimated so far (approx. 7 millions fish). Such large estimate is the result of a combination of a large number of age-group 0-1 observed and the low probability of dying from fishing for that age-group in that year. This large estimate of recruitment relies on the observation of a single age-group of the youngest cohort in the fishery and will undoubtedly be revised by the observations of fish aged 1-2 year old in 2019/20. 2008/9 had the largest recruitment estimate prior to this year, presumably leading to the increase in biomass estimated in 2009/10. 2013/14 was estimated to be the fourth largest recruitment but did not translate into an increase in biomass in 2014/15. The most recent estimate of recruitment (2017/18) is the second largest and follows two very low recruitment in 2015/16 and 2016/17.
+Recruitment was estimated to have varied approximately between 1 and 5 millions fish each year throughout the time series. 2008/9 had the largest recruitment estimate, presumably leading to the increase in biomass estimated in 2009/10. 2013/14 was estimated to be one of the largest recruitment but did not translate into an increase in biomass in 2014/15. Recent years has had several strong recruitments.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_RecruitmentTrend.png)
 
