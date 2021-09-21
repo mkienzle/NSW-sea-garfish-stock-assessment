@@ -2,11 +2,13 @@
 
 ## Introduction
 
-This repository provides data, methods and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). This stock assessment was originally developed using a maximum likelihood approach ([Broadhurst et al., 2018](https://doi.org/10.1016/j.fishres.2017.10.016)) and later expanded with a Bayesian approach (([Kienzle et al., 2021](https://doi.org/10.1016/j.fishres.2021.106066))). Nowadays, the Bayesian approach is regarded as providing a more complete picture of the parameter estimates as well as quantities of interest to manage this fishery.
+This repository provides data, methods and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). This stock assessment was originally developed using a maximum likelihood approach ([Broadhurst et al., 2018](https://doi.org/10.1016/j.fishres.2017.10.016)) and later expanded with a Bayesian approach ([Kienzle et al., 2021](https://doi.org/10.1016/j.fishres.2021.106066)). Nowadays, the Bayesian approach is regarded as providing a more complete picture of the parameter estimates as well as quantities of interest to manage this fishery.
 
 ## Data
 
 The [data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html) shows the four types of data used to produce this stock assessment. They consist of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
+
+Age data displayed into the [data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html) show only the three youngest age-groups were present in the catch in 2004/05. The fourth age-group, age-group 3, become ever more frequent in the catch over the years. 
 
 Catches in this fishery have been relatively stable, in average 42 +- 18 tonnes. Catches in 2009/10 were reported to be 100 tonnes, an un-usually large figure in the time series of data. Fishing effort declined sharply since 2004/05, and have been stable since 2015/16 at around 150 boat-days. Catch per unit effort (CPUE), right-hand panel, were approx. 50 kg/boat-day at the beginning of the time series when effort was very large. After the sharp decline in effort, CPUE fluctuated around 200 kg/boat-day without showing any trend.
 
@@ -67,7 +69,7 @@ Recruitment was estimated to have varied approximately between 1 and 5 millions 
 
 There start to be enough recruitment estimates (14) to begin looking at the relationship between stock and recruitment. We assumed that seagarfish age 1+ are sexually mature. The plot of recruitment estimates against spawning stock biomass (SSB) estimates, fitted with a Ricker stock-recruitment function, suggests that the Ricker model might provide useful information about the level of SSB that produces the largest amount of recruits.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/RickerSRROnNaturalScale.png)
+![](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/RickerSRROnNaturalScale.png =400x400)
 
 ### Maximum Sustainable Yield (MSY)
 
