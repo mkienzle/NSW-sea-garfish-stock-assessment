@@ -64,13 +64,15 @@ Sea garfish biomass estimates have been trending upward since 2008/09: they rema
 
 Recruitment was estimated to have varied approximately between 1 and 5 millions fish each year throughout the time series. 2008/9 had the largest recruitment estimate, presumably leading to the increase in biomass estimated in 2009/10. 2013/14 was estimated to be one of the largest recruitment but did not translate into an increase in biomass in 2014/15. Recent years has had several strong recruitments.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_RecruitmentTrend.png)
+<!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_RecruitmentTrend.png) --->
+<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_RecruitmentTrend.png" align="center" height="400" width="400" ></a>
+
 
 
 There start to be enough recruitment estimates (14) to begin looking at the relationship between stock and recruitment. We assumed that seagarfish age 1+ are sexually mature. The plot of recruitment estimates against spawning stock biomass (SSB) estimates, fitted with a Ricker stock-recruitment function, suggests that the Ricker model might provide useful information about the level of SSB that produces the largest amount of recruits.
 
 <!--- ![](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/RickerSRROnNaturalScale.png =400x400) --->
-<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/RickerSRROnNaturalScale.png" align="center" height="200" width="200" ></a>
+<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/RickerSRROnNaturalScale.png" align="center" height="400" width="400" ></a>
 
 ### Maximum Sustainable Yield (MSY)
 
