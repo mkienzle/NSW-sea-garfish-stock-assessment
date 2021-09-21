@@ -36,7 +36,8 @@ An estimate of MSY was obtained by simulating the exploitation of this stock, us
 
 ## Results
 
-Model 2 is most supported by the data according to [BIC](Script/Results/Data/Bayesian_ModelComparisonTable.csv). Four Monte Carlo Markov Chains (MCMCs) converged after about [20,000 iterations](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png).
+The parameters of all three models were estimated using a Bayesian approach. Four Monte Carlo Markov Chains (MCMCs) converged after about 20,000 iterations ([MCMC convergence for model 2](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png)).
+Model 2 was the model most supported by the data according to [BIC](Script/Results/Data/Bayesian_ModelComparisonTable.csv)). 
 
 <!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png) --->
 <!--- <a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png" align="center" height="600" width="600" ></a> --->
