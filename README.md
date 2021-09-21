@@ -38,11 +38,20 @@ An estimate of MSY was obtained by simulating the exploitation of this stock, us
 
 Model 2 is most supported by the data according to [BIC](Script/Results/Data/Bayesian_ModelComparisonTable.csv). Four Monte Carlo Markov Chains (MCMCs) converged after about 20,000 iterations.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png)
+<!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png) --->
+<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png" align="center" height="600" width="600" ></a>
+
+The posterior distributions of the parameters are uni-modal and symmetric. There is a strong negative correlation between fishing mortality (catchability, par1) and natural mortality (par2)
+
+<!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png) --->
+<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png" align="center" height="600" width="600" ></a>
+
 
 The posterior distributions of the parameters of model 2 were compared to Gaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)
+<!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png) --->
+<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png" align="center" height="600" width="600" ></a>
+
 
 <!--- [This diagnostic plot](Script/Results/Graphics/NbAtAgeOverlayedWithModel.png) shows discrepancies between model 2 and age data. [Profiles](Script/Results/Graphics/Model2-ProfileLikelihood.png) of its negative log-likelihood function are smooth around the minimum for each parameter and allow to visualise parameter estimates uncertainties. The sections below describe the dynamics of this fishery based on this model 2 parameter estimates. --->
 
@@ -52,13 +61,17 @@ The posterior distributions of the parameters of model 2 were compared to Gaussi
 
 Fishing mortality rates have declined below natural mortality from 2009/10 onward. The decrease in age-group 0-1 retention, induced by the increased mesh size regulation initiated in 2006 and fully adopted in 2009/10, reduced fishing mortality on the youngest age-group to a negligible level.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Mod2-MortalityEstimates.png)
+<!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Mod2-MortalityEstimates.png) --->
+<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Mod2-MortalityEstimates.png" align="center" height="600" width="600" ></a>
+
 
 #### Biomass estimates
 
 Sea garfish biomass estimates have been trending upward since 2008/09: they remained above 100 tonnes since 2009/10. Biomass increased in the last 3 years and stayed above 200 tonnes in the last 2 years.
 
-![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_BiomassTrend.png)
+<!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_BiomassTrend.png) --->
+<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_BiomassTrend.png" align="center" height="600" width="600" ></a>
+
 
 #### Recruitment estimates
 
