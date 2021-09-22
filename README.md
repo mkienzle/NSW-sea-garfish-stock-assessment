@@ -2,15 +2,17 @@
 
 ## Introduction
 
-This repository provides data, methods and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). This stock assessment was originally developed using a maximum likelihood approach ([Broadhurst et al., 2018](https://doi.org/10.1016/j.fishres.2017.10.016)) and later expanded with a Bayesian approach ([Kienzle et al., 2021](https://doi.org/10.1016/j.fishres.2021.106066)). Nowadays, the Bayesian approach is regarded as providing a more complete picture of the parameter estimates as well as quantities of interest to manage this fishery.
+This repository provides data, methods and results used to estimate the status of the sea garfish fishery in New South Wales (Australia). This stock assessment was originally developed using a maximum likelihood approach ([Broadhurst et al., 2018](https://doi.org/10.1016/j.fishres.2017.10.016)) and later expanded with a Bayesian approach ([Kienzle et al., 2021](https://doi.org/10.1016/j.fishres.2021.106066)). The Bayesian approach provides a convenient method to propagate uncertainties from parameter estimates to quantities of interest for fishery management. 
 
 ## Data
 
-The [data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html) shows the four types of data used to produce this stock assessment. They consist of measurements of [age from a sample of commercial catches](Data/GarfishAgeData.csv), [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), [total catch](Data/GarfishCatchData.csv) and [effort](Data/GarfishEffortData.csv).
+The [data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html) shows the four types of data used to produce this stock assessment: (1) [age from a sample of commercial catches](Data/GarfishAgeData.csv), (2) [weights from individual fish in specific intervals of age](Data/GarfishWeightAtAge.csv), (3) [yield](Data/GarfishCatchData.csv) by year, and (4) [effort](Data/GarfishEffortData.csv) by year.
 
-Age data displayed into the [data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html) show only the three youngest age-groups were present in the catch in 2004/05. The fourth age-group, age-group 3, become ever more frequent in the catch over the years. 
+In 2004/05, only three age-groups, age-groups 0, 1 and 2, were present in the catch ([data dashboard](https://mkienzle.github.io/NSW-sea-garfish-stock-assessment/docs/data_dashboard.html)). The fourth age-group, age-group 3, became more frequent over the years: age-groups 3+ made between 2 and 16% of commercial catches in the last 5 years while they represented only 0 to 6% of catches in previous years.
 
-Catches in this fishery have been relatively stable, in average 42 +- 18 tonnes. Catches in 2009/10 were reported to be 100 tonnes, an un-usually large figure in the time series of data. Fishing effort declined sharply since 2004/05, and have been stable since 2015/16 at around 150 boat-days. Catch per unit effort (CPUE), right-hand panel, were approx. 50 kg/boat-day at the beginning of the time series when effort was very large. After the sharp decline in effort, CPUE fluctuated around 200 kg/boat-day without showing any trend.
+Yields in this fishery have been relatively stable, in average 42 +- 18 tonnes. Catches in 2009/10 were reported to be 100 tonnes, an un-usually large figure in this time series of data. Fishing effort declined sharply since 2004/05, and have slowly declined to 136 boat-days in 2019/20. 
+
+Catch per unit effort (CPUE), right-hand panel, were approx. 50 kg/boat-day at the beginning of the time series when effort was very large. After the sharp decline in effort, CPUE increased and fluctuated around 200 kg/boat-day without showing any trend.
 
 ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/CatchAndEffortVariations.png)
 
@@ -42,16 +44,15 @@ Model 2 was the model most supported by the data according to [BIC](Script/Resul
 <!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png) --->
 <!--- <a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png" align="center" height="600" width="600" ></a> --->
 
-The posterior distributions of the parameters are uni-modal and symmetric. There is a strong negative correlation between catchability (par1) and natural mortality (par2)
+The posterior distributions of the parameters are uni-modal and symmetric: they are essentially Gaussian ([comparison with Gaussian](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)). There is a strong negative correlation between catchability (par1) and natural mortality (par2). 
 
 <!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png) --->
 <a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png" align="center" height="600" width="600" ></a>
 
 
-The posterior distributions of the parameters of model 2 were compared to Gaussian distributions with the same mean and standard distributions: the empirical and theoretical distributions are in good agreement.
 
 <!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png) --->
-<a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png" align="center" height="600" width="600" ></a>
+<!--- <a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png" align="center" height="600" width="600" ></a> --->
 
 
 <!--- [This diagnostic plot](Script/Results/Graphics/NbAtAgeOverlayedWithModel.png) shows discrepancies between model 2 and age data. [Profiles](Script/Results/Graphics/Model2-ProfileLikelihood.png) of its negative log-likelihood function are smooth around the minimum for each parameter and allow to visualise parameter estimates uncertainties. The sections below describe the dynamics of this fishery based on this model 2 parameter estimates. --->
