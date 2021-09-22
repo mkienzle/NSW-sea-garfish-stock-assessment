@@ -44,7 +44,7 @@ Model 2 was the model most supported by the data according to [BIC](Script/Resul
 <!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png) --->
 <!--- <a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Trace_model2.png" align="center" height="600" width="600" ></a> --->
 
-The posterior distributions of the parameters are uni-modal and symmetric: they are essentially Gaussian ([comparison with Gaussian](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)). There is a strong negative correlation between catchability (par1) and natural mortality (par2). 
+The posterior distributions of the parameters are uni-modal and symmetric: they are essentially Gaussian ([comparison with Gaussian](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_ParametersPosteriorDistributions_model2.png)). There is a strong negative correlation between catchability (parameter 1) and natural mortality (parameter 2). 
 
 <!--- ![alt text](https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png) --->
 <a href="url"><img src="https://github.com/mkienzle/NSW-sea-garfish-stock-assessment/blob/master/Script/Results/Graphics/Bayesian_Model2_CorrelationBetweenParameters.png" align="center" height="600" width="600" ></a>
